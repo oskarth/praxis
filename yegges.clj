@@ -16,6 +16,13 @@
         rev
         (recur (rest rem) (str (first rem) rev)))))
 
+; Better solution
+(defn my-reverse [coll]
+  (reduce conj () coll))
+
+(defn reverse-string-sol [s]
+  (apply str (my-reverse s)))
+
 ; 2. Fibonacci numbers
 ; Naive version. Aaround fib 35 it takes a lot of time.
 ; What's the smallest solution that is better? loop-recur? memo? DP?
@@ -34,6 +41,14 @@
       (let [res (+ (fib2 (- n 1)) (fib2 (- n 2)))]
         (swap! fib-memo #(assoc % n res))
         res)))
+
+; Better solution, linear time
+(defn fib
+  ([n]
+    (fib n 1 0))
+  ([n f1 f2]
+    (if (zero? n) f2
+          (fib (- n 1) (+ f1 f2) f1))))
 
 ; 3. Print out the grade-school multiplication table up to 12 x 12.
 ; Lots of code duplication - better fn / coll manipulation?
@@ -55,6 +70,13 @@
   (doseq [row (range 1 (+ n 1))]
     (println (row-str row n))))
 
+; Better solution
+(defn times-table [n]
+  (dotimes [x n]
+    (dotimes [y n]
+      (print (format "%3d " (* (inc x) (inc y)))))
+    (println)))
+
 ; 4. Write a function that sums up integers from a text file, one per line.
 ; How to format this type of code better?
 (defn file-sum [name]
@@ -68,6 +90,7 @@
     (println n)))
 
 ; 6. Find the largest int value in an int array.
+; (Assuming we can't use built-in max)
 (defn max-int [v]
   (reduce (fn [x y] (if (> x y) x y))
           v))
