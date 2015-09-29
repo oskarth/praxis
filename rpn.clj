@@ -55,6 +55,27 @@
   (println (eval-rpn (str->expr (read-line))))
   (rpn-loop))
 
-(rpn-loop)
+; (rpn-loop)
 
 ; (run-tests)
+
+; Better solution (from the comments)
+(defn rpn [stack value]
+  (let [[s1 s2] stack
+        v (eval (read-string value))]
+    (cond
+      (number? v) (conj stack v)
+      (fn? v) (conj (rest (rest stack)) (v s2 s1))
+      :else stack)))
+
+(defn calc [stack line]
+  (let [coll (clojure.string/split line #" ")
+        newstack (reduce rpn stack coll)]
+    (println (first newstack))
+    newstack))
+
+(defn rpn-repl []
+  (loop [stack '()]
+    (recur (calc stack (read-line)))))
+
+(rpn-repl)
