@@ -11,3 +11,11 @@ googling multiple times, but never looked up solution.*
 overflow for n > ~1e5 (need ~1e7), despite using loop-recur. After googling and
 looking up answers it seems as if one problem might be with me using multiply
 rather than addition, but don't know why that would impact the stack. ~1h time.*
+
+*September 30, 2015. TTT API in Clojure. Failed this task in a job interview.
+The main issue was that I had no tests, which lead to error-prone code. I was
+also rusty with Clojure, which meant I didn't finish in time and made a lot of
+stupid errors. This time testing and robustness went a lot better and I
+finished, ish (no AI), but it took me closer to ~3h. A lot of this was spent on
+setup tasks that I'll get better at with practice, though. Main thing missing
+here is execution speed, and possibly an AI.*
