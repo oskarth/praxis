@@ -19,3 +19,8 @@ stupid errors. This time testing and robustness went a lot better and I
 finished, ish (no AI), but it took me closer to ~3h. A lot of this was spent on
 setup tasks that I'll get better at with practice, though. Main thing missing
 here is execution speed, and possibly an AI.*
+
+*October 1, 2015. Bingo time in Clojure. Took ~2-3h, which is, again, too much.
+Need to get better at manipulating collection, defining and testing interfaces.
+OK code, but far from optimal for problem. Discrepency in one answer; unclear
+why.*
