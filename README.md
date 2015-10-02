@@ -24,3 +24,7 @@ here is execution speed, and possibly an AI.*
 Need to get better at manipulating collection, defining and testing interfaces.
 OK code, but far from optimal for problem. Discrepency in one answer; unclear
 why.*
+
+*October 2, 2015. Binary search in Clojure. Only had an hour late at nighh -
+keep doing in the morning for better concentration. Not very pretty and most
+likely buggy, more testing needed.*
