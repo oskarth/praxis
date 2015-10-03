@@ -8,6 +8,7 @@
 (require '[clojure.test :refer [deftest is run-tests]])
 
 ; "Functional" queue.
+;----------------------------------------
 
 ; Need this to ensure conj inserts in the right place
 ; TODO: More generic solution, define protocol and then implement for () and []?
@@ -26,14 +27,15 @@
 
 
 ; Protocols solution.
+;----------------------------------------
 ; TODO: How to get docstring for dequeue?
-(defprotocol Queue
+#_(defprotocol Queue
   "Queue abstraction."
   (enqueue [queue x])
   (dequeue [queue] "Returns a vector pair of first item and new queue.")
   (isempty? [queue]))
 
-(extend-type clojure.lang.IPersistentVector
+#_(extend-type clojure.lang.IPersistentVector
   Queue
   (enqueue [queue x]
     (conj queue x))
@@ -42,10 +44,25 @@
   (isempty? [queue]
     (empty? queue)))
 
-; TODO: Stateful queue.
+; Stateful queue.
+;----------------------------------------
+(defn new-queue []
+  (atom []))
 
+(defn isempty? [queue]
+  (empty? @queue))
 
+(defn enqueue [queue x]
+  (swap! queue #(conj % x)))
 
+(defn dequeue [queue]
+  {:pre [(not (isempty? queue))]}
+  (let [x (first @queue)]
+    (swap! queue #(vec (rest %)))
+    x))
+
+; Tests
+;----------------------------------------
 #_(deftest queue
   (let [q (new-queue)]
     (is (isempty? q))
@@ -53,6 +70,16 @@
     (is (= (dequeue (enqueue q 1)) [1 []]))
     (is (= (dequeue (enqueue (enqueue q 1) 2))) [2 []])))
 
-(deftest queue-protcol
+#_(deftest queue-protcol
   (is (= (dequeue (enqueue (enqueue [3] 1) 2))
          [3 [1 2]])))
+
+(deftest queue-stateful
+  (let [q (new-queue)]
+    (do (enqueue q 1)
+        (enqueue q 2)
+        (is (= (dequeue q) 1))
+        (is (= (dequeue q) 2))
+        (is (thrown? AssertionError (dequeue q))))))
+
+#_(run-tests)
