@@ -46,16 +46,16 @@
 
 ; Stateful queue.
 ;----------------------------------------
-(defn new-queue []
+#_(defn new-queue []
   (atom []))
 
-(defn isempty? [queue]
+#_(defn isempty? [queue]
   (empty? @queue))
 
-(defn enqueue [queue x]
+#_(defn enqueue [queue x]
   (swap! queue #(conj % x)))
 
-(defn dequeue [queue]
+#_(defn dequeue [queue]
   {:pre [(not (isempty? queue))]}
   (let [x (first @queue)]
     (swap! queue #(vec (rest %)))
@@ -74,7 +74,7 @@
   (is (= (dequeue (enqueue (enqueue [3] 1) 2))
          [3 [1 2]])))
 
-(deftest queue-stateful
+#_(deftest queue-stateful
   (let [q (new-queue)]
     (do (enqueue q 1)
         (enqueue q 2)
@@ -82,4 +82,12 @@
         (is (= (dequeue q) 2))
         (is (thrown? AssertionError (dequeue q))))))
 
-#_(run-tests)
+(deftest queue-clj
+  (let [q clojure.lang.PersistentQueue/EMPTY]
+    (is (empty? q) true)
+    (is (= (type (conj q 1)) clojure.lang.PersistentQueue))
+    (is (= (peek (conj (conj q 1) 2)) 1))
+    (is (= (peek (pop (conj (conj (conj q 1) 2) 3))) 2))
+    (is (= (-> q (conj 1) (conj 2) (conj 3) pop peek) 2))))
+
+(run-tests)
