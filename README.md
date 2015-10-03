@@ -33,3 +33,9 @@ keep doing in the morning for better concentration. Not very pretty and most
 likely buggy, more testing needed. [UPDATE: Better solution - test edges case,
 use lo/hi index with invariant thattarget num between those,; each recur inc lo
 or dec hi, so always progress => base case (< hi lo)]*
+
+*October 3, 2015. Queue in Clojure. Implemented it in three ways: "functional",
+protocol extend vector, and stateful (atom) in ~1h. Nice to use protocols, but
+not sure about standalone utility - basics already builtin. Another common way
+is to have two lists, but doesn't make sense with Clojure's data structures I
+think. Only thing to consider is that lists conj at head and vectors at tail.*
