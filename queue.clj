@@ -11,28 +11,48 @@
 
 ; Need this to ensure conj inserts in the right place
 ; TODO: More generic solution, define protocol and then implement for () and []?
-(defn new-queue [] [])
+#_(defn new-queue [] [])
 
-(defn enqueue [queue x]
+#_(defn enqueue [queue x]
   (conj queue x))
 
 ; XXX: Interface for this in a functional queue?
-(defn dequeue [queue]
+#_(defn dequeue [queue]
   [(first queue) (vec (rest queue))])
 
 ; Tautological...
-(defn isempty? [queue]
+#_(defn isempty? [queue]
   (empty? queue))
 
 
+; Protocols solution.
+; TODO: How to get docstring for dequeue?
+(defprotocol Queue
+  "Queue abstraction."
+  (enqueue [queue x])
+  (dequeue [queue] "Returns a vector pair of first item and new queue.")
+  (isempty? [queue]))
+
+(extend-type clojure.lang.IPersistentVector
+  Queue
+  (enqueue [queue x]
+    (conj queue x))
+  (dequeue [queue]
+    [(first queue) (vec (rest queue))])
+  (isempty? [queue]
+    (empty? queue)))
+
 ; TODO: Stateful queue.
-; TODO: Protocoly.
 
 
 
-(deftest queue
+#_(deftest queue
   (let [q (new-queue)]
     (is (isempty? q))
     (is (= (dequeue (enqueue q 1)) [1 []]))
     (is (= (dequeue (enqueue q 1)) [1 []]))
     (is (= (dequeue (enqueue (enqueue q 1) 2))) [2 []])))
+
+(deftest queue-protcol
+  (is (= (dequeue (enqueue (enqueue [3] 1) 2))
+         [3 [1 2]])))
