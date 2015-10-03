@@ -38,4 +38,6 @@ or dec hi, so always progress => base case (< hi lo)]*
 protocol extend vector, and stateful (atom) in ~1h. Nice to use protocols, but
 not sure about standalone utility - basics already builtin. Another common way
 is to have two lists, but doesn't make sense with Clojure's data structures I
-think. Only thing to consider is that lists conj at head and vectors at tail.*
+think. Only thing to consider is that lists conj at head and vectors at tail.
+[UPDATE: Use clojure.lang.PersistentQueue/EMPTY with peek/conj/pop. No literal
+syntax or constructor fn.]*
