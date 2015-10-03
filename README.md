@@ -2,10 +2,13 @@
 
 *September 28, 2015. RPN Calculator in Clojure. Took too long, several attempts
 and on the order of three hours. Code is too verbose and error-prone. Required
-googling multiple times, but never looked up solution.*
+googling multiple times, but never looked up solution. [UPDATE: Better solution
+- loop recur, fewer fns with clear purpose, local destructuring, fn? predicate,
+  use lists.]*
 
 *September 29, 2015. Yegge's phone screen questions in Clojure. Took too long,
-~2h, and too verbose. Required a bit of googling. OK error handling.*
+~2h, and too verbose. Required a bit of googling. OK error handling. [UPDATE:
+Better solution - use reduce, multi-arity, dotimes; fib bottom-up linear.]*
 
 *September 30, 2015. Sieve of Eratosthenes in Clojure. OK but getting stack
 overflow for n > ~1e5 (need ~1e7), despite using loop-recur. After googling and
@@ -25,6 +28,8 @@ Need to get better at manipulating collection, defining and testing interfaces.
 OK code, but far from optimal for problem. Discrepency in one answer; unclear
 why.*
 
-*October 2, 2015. Binary search in Clojure. Only had an hour late at nighh -
+*October 2, 2015. Binary search in Clojure. Only had an hour late at night -
 keep doing in the morning for better concentration. Not very pretty and most
-likely buggy, more testing needed.*
+likely buggy, more testing needed. [UPDATE: Better solution - test edges case,
+use lo/hi index with invariant thattarget num between those,; each recur inc lo
+or dec hi, so always progress => base case (< hi lo)]*
