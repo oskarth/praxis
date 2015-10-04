@@ -1,4 +1,4 @@
-; Google Code Jam Qualification Round Africa 2010
+; Store credit
 ; http://programmingpraxis.com/2011/02/15/google-code-jam-qualification-round-africa-2010/
 ;
 ; Store Credit: You receive a credit C at a local store and would like to buy
