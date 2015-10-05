@@ -41,3 +41,12 @@ is to have two lists, but doesn't make sense with Clojure's data structures I
 think. Only thing to consider is that lists conj at head and vectors at tail.
 [UPDATE: Use clojure.lang.PersistentQueue/EMPTY with peek/conj/pop. No literal
 syntax or constructor fn.]*
+
+*October 4, 2015. Store credit and reverse words in Clojure. Total ~<1h, both
+pretty easy. Reverse word almost cheating with join/split - do this while
+writing them yourself, or alternatively do the harder version of this problem.
+Started on T9.*
+
+*October 5 2015. T9 to latin in Clojure. ~2h, quite tricky until I realized I
+could just flatten input and treat as characters. Main data structure and a 7
+lines, so pretty happy with that.*
