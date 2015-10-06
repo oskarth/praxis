@@ -47,6 +47,11 @@ pretty easy. Reverse word almost cheating with join/split - do this while
 writing them yourself, or alternatively do the harder version of this problem.
 Started on T9.*
 
-*October 5 2015. T9 to latin in Clojure. ~2h, quite tricky until I realized I
+*October 5, 2015. T9 to latin in Clojure. ~2h, quite tricky until I realized I
 could just flatten input and treat as characters. Main data structure and a 7
 lines, so pretty happy with that.*
+
+*October 6, 2015. Population count in Clojure. ~10m, but not a good solution.
+Feels a bit like specialized knowledge, but pretty cool. Would like to know how
+to solve it elegantly in Clojure. And how do you measure the performance of
+this? How do crypto libs do?*
