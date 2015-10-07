@@ -55,3 +55,8 @@ lines, so pretty happy with that.*
 Feels a bit like specialized knowledge, but pretty cool. Would like to know how
 to solve it elegantly in Clojure. And how do you measure the performance of
 this? How do crypto libs do?*
+
+*October 7, 2015. Quadratic sorts in Clojure. Started with bubble sort, took
+~1h. Tricky part is doing it in-place. Started by looking into using Java
+arrays, but seems more idiomatic to use transients. Curious to see how others do
+this in numerically intensive environments.*
