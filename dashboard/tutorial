@@ -1,0 +1,28 @@
+
+The goal of this tutorial is to make a dashboard using Reagent.
+
+Assuming you already have the latest version of Java and Leiningen installed:
+
+`lein new figwheel dashboard -- --reagent`
+
+This generates a new lein project using reagent and figwheel. I probably want to
+minimize this, but let's start with basics for now.
+
+Let's focus on doing and then writing this after. Could also buffer switch here.
+
+After starting the REPL with `rlwrap lein figwheel` and connecting it to the
+browser, type `(in-ns 'dashboard.core)` to switch to being in that namespace.
+`@app-state` to inspect the state.
+
+What do we want?
+
+- use a REST API
+- show collections and individual things
+- be responsive, work in all browsrs
+- work offline
+- provide auth
+
+Ok, two hours, a start. Not far, but a start. A bit of yakshaving with thre
+printer stuff, which is OK I guess.
+
+Fix the xhr req things. Do a similar pattern to what you did before with app.
