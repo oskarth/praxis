@@ -1,36 +1,22 @@
 (ns ^:figwheel-always dashboard.core
  (:require [goog.net.XhrIo :as xhr]
+           [figwheel.client :as fc]
            [reagent.core :as r :refer [atom]]))
 
-;; A game of commit
+; TODO: Login with Github
+; TODO: Get gist or something to show up
+; TODO: Get iPhone 6 etc bg-color to fill screen
 
-; Annoyances: source sometimes doesn't work when doc does
-; ctrl-c cancels repl, shouldn't! ctrl-d does that.
-; print should toggle ish
+;(enable-console-print!) ; print to terminal
+(fc/enable-repl-print!) ; print to repl
 
-; How to print from inside lein repl process:
-; (figwheel.client/enable-repl-print!)
-;(figwheel.client/figwheel-repl-print (.getResponseText xhr))
-;
-https://github.com/bhauman/lein-figwheel/blob/master/support/src/figwheel/client.cljs
-
-; TODO: try this https://gist.github.com/mneise/e39484340ff4a2789da6
-; ok that works! prob with enable-conosle-print etc
-;req            [figwheel.client :as fc]))
-; (fc/enable-repl-print!)
-; just println now.
-
-(enable-console-print!)
-
-; Use send() instance method instead instead
-
-;;; AJAX Layer
+;; AJAX Layer
+;; What is the interface we want? want to be able to get and post to urls
+;; with Clojure data structures. Then get JSON back and translate that.
 
 (defn gh-receiver [event]
-  (let [xhr (.-target event)]                     ; equivalent to event.target
-    ;(figwheel.client/figwheel-repl-print (.getResponseText xhr))
-    (println (.getResponseText xhr))
-    #_(println "response" (.getResponseText xhr)))) ; getResponseJson exists
+  (let [xhr (.-target event)]
+    (println (.getResponseText xhr))))
 
 (defn GET [url content cb-fn]
   (xhr/send url cb-fn "GET" content))
@@ -38,9 +24,7 @@ https://github.com/bhauman/lein-figwheel/blob/master/support/src/figwheel/client
 (defn get-koan! []
   (GET "https://api.github.com/zen" "" gh-receiver))
 
-; What is the interface we want? want to be able to get and post to urls
-; with Clojure data structures. Then get JSON back and translate that.
-
+;; Application state and components
 
 (defonce gh-koan (r/atom 0))
 
@@ -62,23 +46,23 @@ https://github.com/bhauman/lein-figwheel/blob/master/support/src/figwheel/client
       [:div
         "Seconds Elapsed: " @seconds-elapsed])))
 
-(defn simple-component [name]
-  [:div
-    [:p "I am a component called " name "!"]])
+(defn global-nav []
+  [:nav.clearfix
+    [:div.col
+      [:a.btn.py2 {:href "/"} "Home"]]
+    [:div.col-right
+      [:a.btn.py2 {:href "/"} "About"]]])
 
 (defn main-component []
-  [:div
-    [:p "I include simple-component."]
-    [simple-component "world"]
-    [counting-component]
-    [timer-component]])
+  [:header
+    (global-nav)
+    [:div.center.px2.py4
+      [:h2.h2-responsive.caps.mt4.mb0.regular "gitcomm"]
+      [:p.h3 "A game of commitment"]
+      [:a.h3.btn.btn-primary.mb4.black.bg-yellow {:href "#"} "Play with Github"]]])
 
 (defn hello-world []
   [:h1 (:text @app-state)])
 
 (r/render-component [main-component]
   (. js/document (getElementById "app")))
-
-(defn on-js-reload []
-  ;(swap! app-state update-in [:__figwheel_counter] inc)
-)
