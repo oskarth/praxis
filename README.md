@@ -60,3 +60,10 @@ this? How do crypto libs do?*
 ~1h. Tricky part is doing it in-place. Started by looking into using Java
 arrays, but seems more idiomatic to use transients. Curious to see how others do
 this in numerically intensive environments.*
+
+*October 8, 2015. Dashboard in Clojurescript. ~2h, lots of yak-shaving. More
+tomorrow.*
+
+*October 9, 2015. Dashboard in Clojurescript. +~4h - got workflow, initial
+responsive CSS, Firebase and xhr requests up. Spent a bunch of time on
+authentication, but decided to bootstrap with Firebase for now.*
