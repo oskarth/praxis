@@ -1,2 +1,16 @@
+.*.sw?
 .nrepl-history
 .nrepl-port
+figwheel_server.log
+pom.xml
+*jar
+/lib/
+/classes/
+/out/
+.lein-deps-sum
+/target/
+/*/resources/public/js/compiled/
+/*/target/
+.lein-repl-history
+.lein-plugins/
+.repl
