@@ -65,5 +65,8 @@ this in numerically intensive environments.*
 tomorrow.*
 
 *October 9, 2015. Dashboard in Clojurescript. +~4h - got workflow, initial
-responsive CSS, Firebase and xhr requests up. Spent a bunch of time on
+responsive CSS, Firebase and xhr requests up.*
+
+*October 9, 2015. Continuation from yesterday, lots of f(l)ailing around with
+CORS and OAuth. Bah, frustrating and a lot of incidential complexity. ~2-3h.*
 authentication, but decided to bootstrap with Firebase for now.*
