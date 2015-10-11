@@ -61,12 +61,7 @@ this? How do crypto libs do?*
 arrays, but seems more idiomatic to use transients. Curious to see how others do
 this in numerically intensive environments.*
 
-*October 8, 2015. Dashboard in Clojurescript. ~2h, lots of yak-shaving. More
-tomorrow.*
-
-*October 9, 2015. Dashboard in Clojurescript. +~4h - got workflow, initial
-responsive CSS, Firebase and xhr requests up.*
-
-*October 9, 2015. Continuation from yesterday, lots of f(l)ailing around with
-CORS and OAuth. Bah, frustrating and a lot of incidential complexity. ~2-3h.*
-authentication, but decided to bootstrap with Firebase for now.*
+*October 8 to October 10, 2015. Initially intended to make a dashboard in
+Clojurescript, but found myself making something else that doesn't belong in
+this repo. ~10h spent on it; a lot of flailing around with Github, CORS,
+Firebase etc. I moved it to Gitcomm repo.*
