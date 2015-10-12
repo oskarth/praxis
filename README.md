@@ -12,28 +12,28 @@ up documentation. then rehearse every now and then - a sequence.
 fluent if you don't have look anything up, and it's implemented fluently, as if
 it is obvious. I try to err on the side of no.
 
-| ID | Short description                              | Fluent   | # | Visited |
-|----|------------------------------------------------|----------|---|---------|
-|  1 | Make an RPN calculator.                        | No, ~3h  | 1 | Sep 28  |
-|  2 | Reverse a string.                              | No       | 1 | Sep 29  |
-|  3 | Compute the nth fibonacci number.              | No       | 1 | Sep 29  |
-|  4 | Print multiplication table up to 12x12.        | No       | 1 | Sep 29  |
-|  5 | Sum up ints from a text file, one perline.     | No       | 1 | Sep 29  |
-|  6 | Print odd numbers between 1 and 99.            | No       | 1 | Sep 29  |
-|  7 | Find the largest value in an an array.         | No       | 1 | Sep 29  |
-|  8 | Convert an RGB value to an hexadecimal string. | No       | 1 | Sep 29  |
-|  9 | Sieve of Eratosthenes.                         | No, ~1h  | 1 | Sep 30  |
-| 10 | TTT-API (long problem).                        | No, ~3h  | 1 | Sep 30  |
-| 11 | Bingo.                                         | No, ~3h  | 1 | Oct  1  |
-| 12 | Binary search.                                 | No       | 1 | Oct  2  |
-| 13 | Queue.                                         | No       | 1 | Oct  3  |
-| 14 | Store credit.                                  | Maybe    | 1 | Oct  4  |
-| 15 | Reverse words (naive).                         | Maybe    | 1 | Oct  4  |
-| 16 | T9 to latin.                                   | No       | 1 | Oct  5  |
-| 17 | Population count.                              | No       | 1 | Oct  6  |
-| 18 | Bubble sort.                                   | No       | 1 | Oct 11  |
-| 19 | Insertion sort.                                | No       | 1 | Oct 11  |
-| 20 | Selection sort.                                | No       | 1 | Oct 11  |
+| ID | Name                                | Specced? | Fluent   | # | Visited |
+|----|-------------------------------------|----------|----------|---|---------|
+|  1 | rpn-calculator                      | Yes      | No, ~3h  | 1 | Sep 28  |
+|  2 | Reverse a string.                   | No       | No       | 1 | Sep 29  |
+|  3 | Compute the nth fibonacci number.   | No       | No       | 1 | Sep 29  |
+|  4 | Print mul table up to 12x12.        | No       | No       | 1 | Sep 29  |
+|  5 | Sum up ints from a text file.       | No       | No       | 1 | Sep 29  |
+|  6 | Print odd numbers between 1 and 99. | No       | No       | 1 | Sep 29  |
+|  7 | Find the largest value in an array. | No       | No       | 1 | Sep 29  |
+|  8 | Convert RGB to hexadecimal string.  | No       | No       | 1 | Sep 29  |
+|  9 | Sieve of Eratosthenes.              | No       | No, ~1h  | 1 | Sep 30  |
+| 10 | TTT-API (long problem).             | No       | No, ~3h  | 1 | Sep 30  |
+| 11 | Bingo.                              | No       | No, ~3h  | 1 | Oct  1  |
+| 12 | Binary search.                      | No       | No       | 1 | Oct  2  |
+| 13 | Queue.                              | No       | No       | 1 | Oct  3  |
+| 14 | Store credit.                       | No       | Maybe    | 1 | Oct  4  |
+| 15 | Reverse words (naive).              | No       | Maybe    | 1 | Oct  4  |
+| 16 | T9 to latin.                        | No       | No       | 1 | Oct  5  |
+| 17 | Population count.                   | No       | No       | 1 | Oct  6  |
+| 18 | Bubble sort.                        | No       | No       | 1 | Oct 11  |
+| 19 | Insertion sort.                     | No       | No       | 1 | Oct 11  |
+| 20 | Selection sort.                     | No       | No       | 1 | Oct 11  |
 
 ## Problem specifications
 
