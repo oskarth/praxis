@@ -1,0 +1,8 @@
+Implement an RPN calculator that takes an expression like "5 1 2 + 4 * + 3 -",
+which is usually expressed as "5 + ((1 + 2) * 4) - 3", and responds with "14".
+Note that "3 2 -" should evaluate to 1. The program should read expressions from
+standard input and print the top of the stack to standard output when a newline
+is encountered. The program should retain the state of the operand stack between
+expressions.
+
+From http://programmingpraxis.com/2009/02/19/rpn-calculator/
