@@ -9,14 +9,16 @@ maybe 100-200 LOC. In other words, we have short and long problems.
 atomic practice. metric and do again and again and again. metric, ~10-20m, no look
 up documentation. then rehearse every now and then - a sequence.
 
-fluent if you don't have look anything up, and it's implemented fluently, as if
-it is obvious. I try to err on the side of no.
+Fluent if you don't have look anything up, and it's implemented fluently, as if
+it is obvious. I try to err on the side of saying no in this table. Manifold
+means that you should implement it in more than two ways, such as
+imperative/functional, iterative/recursive, naive/optimized, etc.
 
 | ID | Name                                | Specced? | Fluent   | # | Visited |
 |----|-------------------------------------|----------|----------|---|---------|
-|  1 | rpn-calculator                      | Yes      | No, ~3h  | 1 | Sep 28  |
-|  2 | Reverse a string.                   | No       | No       | 1 | Sep 29  |
-|  3 | Compute the nth fibonacci number.   | No       | No       | 1 | Sep 29  |
+|  1 | RPN calculator                      | Yes      | No, ~3h  | 1 | Sep 28  |
+|  2 | Reverse string (manifold)           | Yes      | No       | 1 | Sep 29  |
+|  3 | Nth Fibonacci (manifold)            | Yes      | No       | 1 | Sep 29  |
 |  4 | Print mul table up to 12x12.        | No       | No       | 1 | Sep 29  |
 |  5 | Sum up ints from a text file.       | No       | No       | 1 | Sep 29  |
 |  6 | Print odd numbers between 1 and 99. | No       | No       | 1 | Sep 29  |
@@ -34,10 +36,6 @@ it is obvious. I try to err on the side of no.
 | 18 | Bubble sort.                        | No       | No       | 1 | Oct 11  |
 | 19 | Insertion sort.                     | No       | No       | 1 | Oct 11  |
 | 20 | Selection sort.                     | No       | No       | 1 | Oct 11  |
-
-## Problem specifications
-
-TODO: Add specifications here
 
 ## Upcoming
 
