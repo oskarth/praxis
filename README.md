@@ -65,3 +65,10 @@ this in numerically intensive environments.*
 Clojurescript, but found myself making something else that doesn't belong in
 this repo. ~10h spent on it; a lot of flailing around with Github, CORS,
 Firebase etc. I moved it to Gitcomm repo.*
+
+*October 11, 2015. Quadratic sorts in C. Decided in-place algorithms make a lot
+more sense to do in a language like C, rather than mucking around with type
+aliases and transients in Clojure. Bubble sort in ~30m. Speaks to non-fluency in
+C for such a simple problem - good diagnostics! ~10m for selection sort, so
+that's pretty good. ~10m for insertion sort too, but had to look up algo pseudo
+to grok.*
