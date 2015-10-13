@@ -6,5 +6,6 @@
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [http-kit "2.1.11"]
                  [compojure "1.4.0"]
-                 [ring/ring-json "0.4.0"]
+                 [cheshire "5.5.0"]
+                 [ring/ring-defaults "0.1.2"]
                  [ring/ring-mock "0.3.0"]])

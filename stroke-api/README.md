@@ -8,8 +8,6 @@ FIXME
 
 ## TODO
 
-- JSON responses
-- Simple routes
 - Basic auth
 
 - HTTPS only
