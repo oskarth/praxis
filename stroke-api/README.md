@@ -6,6 +6,18 @@ A Clojure library designed to ... well, that part is up to you.
 
 FIXME
 
+## TODO
+
+- HTTP server
+- Basic tests
+- JSON responses
+- Simple routes
+- Basic auth
+
+- HTTPS only
+- Certificates
+- Salted passwords
+
 ## License
 
 Copyright © 2015 FIXME
