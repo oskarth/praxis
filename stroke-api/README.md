@@ -8,8 +8,6 @@ FIXME
 
 ## TODO
 
-- HTTP server
-- Basic tests
 - JSON responses
 - Simple routes
 - Basic auth
