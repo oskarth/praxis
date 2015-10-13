@@ -116,3 +116,8 @@ aliases and transients in Clojure. Bubble sort in ~30m. Speaks to non-fluency in
 C for such a simple problem - good diagnostics! ~10m for selection sort, so
 that's pretty good. ~10m for insertion sort too, but had to look up algo pseudo
 to grok.*
+
+*October 12, 2015. Stroke REST API in Clojure. ~3h, not a lot of progress. Got
+basic server, routes and json response up, basic auth work in progress (figuring
+out how to test/simulate it). A lot of mocking around with tools. Will do more
+on this soon. Want to get to a decent state in 1-3h. Will specify it more soon.*
