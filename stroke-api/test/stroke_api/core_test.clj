@@ -4,9 +4,12 @@
             [ring.mock.request :as mock]
             [cheshire.core :as json]))
 
+;; Note: add a header with something like
+;; (app (header (mock/request :get "/") "Authorization" "Basic #f(foo:bar)"))) 
+
 (deftest webserver-test
-  (is (= (app (mock/request :get "/"))
-         {:status 200
-          :headers {"Content-Type" "application/json"}
-          :body (json/generate-string "hi")}))
+  (is (= (:status (app (mock/request :get "/"))) 401))
+
+  (is (= (:status (app (mock/request :get "/")))
+         200))
   )

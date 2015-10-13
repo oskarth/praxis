@@ -8,4 +8,5 @@
                  [compojure "1.4.0"]
                  [cheshire "5.5.0"]
                  [ring/ring-defaults "0.1.2"]
+                 [ring-basic-authentication "1.0.5"]
                  [ring/ring-mock "0.3.0"]])
