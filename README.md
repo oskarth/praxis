@@ -36,6 +36,8 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 | 18 | Bubble sort.                        | No       | No       | 1 | Oct 11  |
 | 19 | Insertion sort.                     | No       | No       | 1 | Oct 11  |
 | 20 | Selection sort.                     | No       | No       | 1 | Oct 11  |
+| 21 | REST API.                           | No       | No       | 1 | Oct 13  |
+| 22 | Lowest common ancestor              | Yes      | No       | 1 | Oct 14  |
 
 ## Upcoming
 
@@ -45,6 +47,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 ## Log
 
 *September 28, 2015. RPN Calculator in Clojure. Took too long, several attempts
+w
 and on the order of three hours. Code is too verbose and error-prone. Required
 googling multiple times, but never looked up solution. [UPDATE: Better solution
 notes - loop recur, fewer fns with clear purpose, local destructuring, fn?
@@ -105,19 +108,23 @@ this? How do crypto libs do?*
 arrays, but seems more idiomatic to use transients. Curious to see how others do
 this in numerically intensive environments.*
 
-*October 8 to October 10, 2015. Initially intended to make a dashboard in
+*October 8 to October 11, 2015. Initially intended to make a dashboard in
 Clojurescript, but found myself making something else that doesn't belong in
 this repo. ~10h spent on it; a lot of flailing around with Github, CORS,
 Firebase etc. I moved it to Gitcomm repo.*
 
-*October 11, 2015. Quadratic sorts in C. Decided in-place algorithms make a lot
+*October 12, 2015. Quadratic sorts in C. Decided in-place algorithms make a lot
 more sense to do in a language like C, rather than mucking around with type
 aliases and transients in Clojure. Bubble sort in ~30m. Speaks to non-fluency in
 C for such a simple problem - good diagnostics! ~10m for selection sort, so
 that's pretty good. ~10m for insertion sort too, but had to look up algo pseudo
 to grok.*
 
-*October 12, 2015. Stroke REST API in Clojure. ~3h, not a lot of progress. Got
+*October 13, 2015. Stroke REST API in Clojure. ~3h, not a lot of progress. Got
 basic server, routes and json response up, basic auth work in progress (figuring
 out how to test/simulate it). A lot of mocking around with tools. Will do more
 on this soon. Want to get to a decent state in 1-3h. Will specify it more soon.*
+
+*October 14, 2015. Lowest common ancestor in Clojure. Just ~1h this morning. Had
+problems with expressing tree traversal in a sane way, so eventually looked it
+up. Didn't tackle real problem yet.*
