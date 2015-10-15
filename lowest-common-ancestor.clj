@@ -1,8 +1,5 @@
-;; 1325 ~1h, looked things up
 
-;; First, how do we represent a binary tree?
-;; [a] or [a nil c] or [a b nil] (last one not necessary but there for clarity)
-(def vectree [8 [3 [1] [6 [4] [7]]] [10 nil [14 [13] nil]]])
+;; Don't need all this
 
 ;; So pretty, if only I wrote it myself.
 (defn vec-to-tree [t]
@@ -22,6 +19,29 @@
         (print (format "%2d" (:val node)))
         (walk (o node) order)))))
   
-(defn foo [vt]
-  (walk (vec-to-tree vt) [:visit :left :right]))
+(defn foo [vt] (walk (vec-to-tree vt) [:visit :left :right]))
 
+;;---------------------------------------------------------------------------
+
+(def vectree [8 [3 [1] [6 [4] [7]]] [10 nil [14 [13] nil]]])
+
+;; It appears to be a BST, not a binary tree, which makes the question easier.
+
+;; Key insight: If we are at a node that's greater than both n and m, we go left.
+;; Vice versa for less than and right. Only if it's in between have we found it.
+;; With this we might not need scaffolding above.
+
+;; Assuming n and m are nodes in tree and m<n.
+;; m leq node leq n
+(defn lct [node m n]
+  (let [[val left right] node]
+    (cond (<= m val n) val
+          (<= val m)   (lct right m n)
+          :else        (lct left m n))))
+
+(and
+ (= (lct vectree 4 7) 6)
+ (= (lct vectree 4 10) 8)
+ (= (lct vectree 1 4) 3)
+ (= (lct vectree 1 3) 3)
+ (= (lct vectree 3 6) 3))
