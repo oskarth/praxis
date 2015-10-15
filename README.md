@@ -37,7 +37,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 | 19 | Insertion sort.                     | No       | No       | 1 | Oct 11  |
 | 20 | Selection sort.                     | No       | No       | 1 | Oct 11  |
 | 21 | REST API.                           | No       | No       | 1 | Oct 13  |
-| 22 | Lowest common ancestor              | Yes      | No       | 1 | Oct 14  |
+| 22 | Lowest common ancestor              | Yes      | No       | 1 | Oct 15  |
 
 ## Upcoming
 
@@ -128,3 +128,7 @@ on this soon. Want to get to a decent state in 1-3h. Will specify it more soon.*
 *October 14, 2015. Lowest common ancestor in Clojure. Just ~1h this morning. Had
 problems with expressing tree traversal in a sane way, so eventually looked it
 up. Didn't tackle real problem yet.*
+
+*October 15, 2015. Lowest common ancestor in Clojure. ~20m. Wrong track
+yesterday. It's a BST, and with key insight we only need a small fn to check
+invariant m < val < n. Generalized tree traversal is a different problem.*
