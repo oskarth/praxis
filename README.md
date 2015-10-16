@@ -27,7 +27,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |  9 | Sieve of Eratosthenes.              | No       | No, ~1h  | 1 | Sep 30  |
 | 10 | TTT-API (long problem).             | No       | No, ~3h  | 1 | Sep 30  |
 | 11 | Bingo.                              | No       | No, ~3h  | 1 | Oct  1  |
-| 12 | Binary search.                      | No       | No       | 1 | Oct  2  |
+| 12 | Binary search                       | Yes      | No       | 2 | Oct 16  |
 | 13 | Queue.                              | No       | No       | 1 | Oct  3  |
 | 14 | Store credit.                       | No       | Maybe    | 1 | Oct  4  |
 | 15 | Reverse words (naive).              | No       | Maybe    | 1 | Oct  4  |
@@ -132,3 +132,8 @@ up. Didn't tackle real problem yet.*
 *October 15, 2015. Lowest common ancestor in Clojure. ~20m. Wrong track
 yesterday. It's a BST, and with key insight we only need a small fn to check
 invariant m < val < n. Generalized tree traversal is a different problem.*
+
+*October 16, 2015. Binary search in Clojure again. ~30m and correct solution,
+but code logic could be a bit more explicit. Also get at invariant quicker,
+should be a 5m problem.*
+
