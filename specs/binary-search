@@ -1,0 +1,6 @@
+Write a function that takes takes a target number and an array of numbers in
+non-decreasing order and returns either the position of the number in the array,
+or -1 to indicate the target number is not in the array. Then write test program
+to show the accuracy of your binary search function.
+
+From http://programmingpraxis.com/2009/03/23/binary-search/
