@@ -137,3 +137,7 @@ invariant m < val < n. Generalized tree traversal is a different problem.*
 but code logic could be a bit more explicit. Also get at invariant quicker,
 should be a 5m problem.*
 
+*October 17, 2015. Binary Search Tree in Clojure. Spent a few hours looking
+for right way to abstract this using protocols and such, but no luck yet.
+Later I decided to go back to just simplest thing that worked, a map and
+constructor. Still need to fix the deletion and rotations though.*
