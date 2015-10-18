@@ -1,43 +1,67 @@
 # Practice journal
 
+Inspiration:
+
+http://programmingpraxis.com/contents/about/ and
+http://senseis.xmp.net/?BenjaminTeuber%2FGuideToBecomeStrong
+
+> Computer programming, like any creative activity, demands constant study and
+practice. Vladimir Horowitz practiced the études of Chopin every night, after he
+performed a concert, to maintain his skills for the next performance.
+
 ## Problem index
 
 Two types of problems: those that are max ~20-30 lines of code and should take
-~10-20 minutes to solve, and ~1h problems (or max two), like TTT-api etc, and are
-maybe 100-200 LOC. In other words, we have short and long problems.
+~10-20 minutes to solve, and ~1h problems (or max two), like TTT-api etc, and
+are maybe 100-200 LOC. In other words, we have short and long problems.
 
-atomic practice. metric and do again and again and again. metric, ~10-20m, no look
-up documentation. then rehearse every now and then - a sequence.
+Atomic practice. metric and do again and again and again. metric, ~10-20m, no
+look up documentation. then rehearse every now and then - a sequence.
+
+Thought: maybe 10-20 minutes is too optimistic for some of these. That is more
+of in a rehearsed state. They are designed to be solve in around 1h. Maybe just
+measure and see how you feel about a given problem?
+
+Hemibellian scale:
+
+1. 5m  (2-10m)
+2. 20m (10-30m)
+3. 1h  (30-90m)
+4. 3h  (90m-4.5h)
 
 Fluent if you don't have look anything up, and it's implemented fluently, as if
 it is obvious. I try to err on the side of saying no in this table. Manifold
 means that you should implement it in more than two ways, such as
 imperative/functional, iterative/recursive, naive/optimized, etc.
 
-| ID | Name                                | Specced? | Fluent   | # | Visited |
-|----|-------------------------------------|----------|----------|---|---------|
-|  1 | RPN calculator                      | Yes      | No, ~3h  | 1 | Sep 28  |
-|  2 | Reverse string (manifold)           | Yes      | No       | 1 | Sep 29  |
-|  3 | Nth Fibonacci (manifold)            | Yes      | No       | 1 | Sep 29  |
-|  4 | Print mul table up to 12x12.        | No       | No       | 1 | Sep 29  |
-|  5 | Sum up ints from a text file.       | No       | No       | 1 | Sep 29  |
-|  6 | Print odd numbers between 1 and 99. | No       | No       | 1 | Sep 29  |
-|  7 | Find the largest value in an array. | No       | No       | 1 | Sep 29  |
-|  8 | Convert RGB to hexadecimal string.  | No       | No       | 1 | Sep 29  |
-|  9 | Sieve of Eratosthenes.              | No       | No, ~1h  | 1 | Sep 30  |
-| 10 | TTT-API (long problem).             | No       | No, ~3h  | 1 | Sep 30  |
-| 11 | Bingo.                              | No       | No, ~3h  | 1 | Oct  1  |
-| 12 | Binary search                       | Yes      | No       | 2 | Oct 16  |
-| 13 | Queue.                              | No       | No       | 1 | Oct  3  |
-| 14 | Store credit.                       | No       | Maybe    | 1 | Oct  4  |
-| 15 | Reverse words (naive).              | No       | Maybe    | 1 | Oct  4  |
-| 16 | T9 to latin.                        | No       | No       | 1 | Oct  5  |
-| 17 | Population count.                   | No       | No       | 1 | Oct  6  |
-| 18 | Bubble sort.                        | No       | No       | 1 | Oct 11  |
-| 19 | Insertion sort.                     | No       | No       | 1 | Oct 11  |
-| 20 | Selection sort.                     | No       | No       | 1 | Oct 11  |
-| 21 | REST API.                           | No       | No       | 1 | Oct 13  |
-| 22 | Lowest common ancestor              | Yes      | No       | 1 | Oct 15  |
+| ID | Name                               | Spec?   | Fluent/TTS | # | Visited |
+|----|------------------------------------|---------|------------|---|---------|
+| 00 | RPN                                | Yes     | No, ~3h    | 1 | Sep 28  |
+| 01 | Reverse string, functional         | Yes     | No, ~5m    | 2 | Oct 18  |
+| 02 | Reverse String, imperative         | Yes     | No         | 1 | Sep 29  |
+| 03 | Nth Fibonacci, naive               | Yes     | No         | 1 | Sep 29  |
+| 04 | Nth Fibonacci, linear              | Yes     | No         | 1 | Sep 29  |
+| XX | REST NOT CLASSIFIED YET  | | | | |
+|  4 | Print mul table up to 12x12.       | No      | No         | 1 | Sep 29  |
+|  5 | Sum up ints from a text file.      | No      | No         | 1 | Sep 29  |
+|  6 | Print odd numbers between 1 and 99 | No      | No         | 1 | Sep 29  |
+|  7 | Find the largest value in an array | No      | No         | 1 | Sep 29  |
+|  8 | Convert RGB to hexadecimal string  | No      | No         | 1 | Sep 29  |
+|  9 | Sieve of Eratosthenes.             | No      | No, ~1h    | 1 | Sep 30  |
+| 10 | TTT-API (long problem).            | No      | No, ~3h    | 1 | Sep 30  |
+| 11 | Bingo.                             | No      | No, ~3h    | 1 | Oct  1  |
+| 12 | Binary search                      | Yes     | No         | 2 | Oct 16  |
+| 13 | Queue.                             | No      | No         | 1 | Oct  3  |
+| 14 | Store credit.                      | No      | Maybe      | 1 | Oct  4  |
+| 15 | Reverse words (naive).             | No      | Maybe      | 1 | Oct  4  |
+| 16 | T9 to latin.                       | No      | No         | 1 | Oct  5  |
+| 17 | Population count.                  | No      | No         | 1 | Oct  6  |
+| 18 | Bubble sort.                       | No      | No         | 1 | Oct 11  |
+| 19 | Insertion sort.                    | No      | No         | 1 | Oct 11  |
+| 20 | Selection sort.                    | No      | No         | 1 | Oct 11  |
+| 21 | REST API.                          | No      | No         | 1 | Oct 13  |
+| 22 | Lowest common ancestor             | Yes     | No         | 1 | Oct 15  |
+| 23 | Binary Search Tree                 | Yes     | No         | 1 | Oct 16  |
 
 ## Upcoming
 
@@ -141,3 +165,7 @@ should be a 5m problem.*
 for right way to abstract this using protocols and such, but no luck yet.
 Later I decided to go back to just simplest thing that worked, a map and
 constructor. Still need to fix the deletion and rotations though.*
+
+*October 18, 2015. Reverse-string in Clojure. ~5m and right, but didn't get
+reduce version. Haven't internalized consequence of conjs happening at head of
+lists.*
