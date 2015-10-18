@@ -38,7 +38,8 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |----|------------------------------------|---------|------------|---|---------|
 | 00 | RPN                                | Yes     | No, ~3h    | 1 | Sep 28  |
 | 01 | Reverse string, functional         | Yes     | No, ~5m    | 2 | Oct 18  |
-| 02 | Reverse String, imperative         | Yes     | No         | 1 | Sep 29  |
+| 02 | Reverse string, imperative         | Yes     | No, -      | 1 | Oct 18  |
+
 | 03 | Nth Fibonacci, naive               | Yes     | No         | 1 | Sep 29  |
 | 04 | Nth Fibonacci, linear              | Yes     | No         | 1 | Sep 29  |
 | XX | REST NOT CLASSIFIED YET  | | | | |
@@ -166,6 +167,7 @@ for right way to abstract this using protocols and such, but no luck yet.
 Later I decided to go back to just simplest thing that worked, a map and
 constructor. Still need to fix the deletion and rotations though.*
 
-*October 18, 2015. Reverse-string in Clojure. ~5m and right, but didn't get
+*October 18, 2015. Reverse-string in Clojure and C. ~5m and right, but didn't get
 reduce version. Haven't internalized consequence of conjs happening at head of
-lists.*
+lists. Also did imperative version in C, but failed - flailed around with
+pointers. Very straightforward solution.*
