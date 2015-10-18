@@ -34,14 +34,13 @@ it is obvious. I try to err on the side of saying no in this table. Manifold
 means that you should implement it in more than two ways, such as
 imperative/functional, iterative/recursive, naive/optimized, etc.
 
-| ID | Name                               | Spec?   | Fluent/TTS | # | Visited |
-|----|------------------------------------|---------|------------|---|---------|
-| 00 | RPN                                | Yes     | No, ~3h    | 1 | Sep 28  |
-| 01 | Reverse string, functional         | Yes     | No, ~5m    | 2 | Oct 18  |
-| 02 | Reverse string, imperative         | Yes     | No, -      | 1 | Oct 18  |
-
-| 03 | Nth Fibonacci, naive               | Yes     | No         | 1 | Sep 29  |
-| 04 | Nth Fibonacci, linear              | Yes     | No         | 1 | Sep 29  |
+| ID  | Name                               | Spec?   | Fluent/TTS | # | Visited |
+|-----|------------------------------------|---------|------------|---|---------|
+| 001 | RPN                                | Yes     | No, ~3h    | 1 | Sep 28  |
+| 002 | Reverse string, functional         | Yes     | No, ~5m    | 2 | Oct 18  |
+| 003 | Reverse string, imperative         | Yes     | No, -      | 1 | Oct 18  |
+| 004 | Nth fibonacci, naive               | Yes     | No         | 1 | Sep 29  |
+| 005 | Nth fibonacci, linear time         | Yes     | No         | 1 | Sep 29  |
 | XX | REST NOT CLASSIFIED YET  | | | | |
 |  4 | Print mul table up to 12x12.       | No      | No         | 1 | Sep 29  |
 |  5 | Sum up ints from a text file.      | No      | No         | 1 | Sep 29  |
@@ -62,7 +61,8 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 | 20 | Selection sort.                    | No      | No         | 1 | Oct 11  |
 | 21 | REST API.                          | No      | No         | 1 | Oct 13  |
 | 22 | Lowest common ancestor             | Yes     | No         | 1 | Oct 15  |
-| 23 | Binary Search Tree                 | Yes     | No         | 1 | Oct 16  |
+| 23 | Binary Search Tree                 | Yes     | No         | 1 | Oct 17  |
+| 24 | Min stack                          | Yes     | No, ~20m   | 1 | Oct 18 |
 
 ## Upcoming
 
@@ -171,3 +171,8 @@ constructor. Still need to fix the deletion and rotations though.*
 reduce version. Haven't internalized consequence of conjs happening at head of
 lists. Also did imperative version in C, but failed - flailed around with
 pointers. Very straightforward solution.*
+
+*October 18, 2015. Min Stack in Clojure. ~20m solved, but not happy with
+non-datatyped it was. After looking around some I found what feels like The
+Right Way to do it using protocol IMinStack and defrecord MinStack, so I'm happy
+about that. Very terse. Interface, implementation and constructor.*
