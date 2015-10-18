@@ -1,0 +1,5 @@
+Design a data structure that provides push and pop operations, like a stack,
+plus a third operation that finds the minimum element. All three operations must
+perform in constant time. You may assume that all elements are distinct.
+
+From http://programmingpraxis.com/2012/07/27/min-stack/
