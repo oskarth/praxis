@@ -39,8 +39,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 | 001 | RPN                                | Yes     | No, ~3h    | 1 | Sep 28  |
 | 002 | Reverse string, functional         | Yes     | No, ~5m    | 2 | Oct 18  |
 | 003 | Reverse string, imperative         | Yes     | No, -      | 1 | Oct 18  |
-| 004 | Nth fibonacci, naive               | Yes     | No         | 1 | Sep 29  |
-| 005 | Nth fibonacci, linear time         | Yes     | No         | 1 | Sep 29  |
+| 004 | Nth fibonacci (naive and linear)   | Yes     | Yes, ~5m   | 2 | Oct 19  |
 | XX | REST NOT CLASSIFIED YET  | | | | |
 |  4 | Print mul table up to 12x12.       | No      | No         | 1 | Sep 29  |
 |  5 | Sum up ints from a text file.      | No      | No         | 1 | Sep 29  |
@@ -181,3 +180,7 @@ happy about that. Very terse. Interface, implementation and constructor.*
 *October 19, 2015. String subset in Clojure. ~20m solved. Used loop-recur and
 O(nlogn), whereas O(n) is possible. OK but should get O(n) soln too (maybe in
 <1h though?)*
+
+*October 20, 2015. Nth fibonacci in Clojure, both naive and linear. Both took
+~5m (10m total), so better than expected! Yes, mastered. One problem or keep as
+two? Same problem. Integeroverflow before Stackoverflow*
