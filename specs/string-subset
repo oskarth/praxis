@@ -1,0 +1,5 @@
+Given two strings, determine if all the characters in the second string appear
+in the first string. Counts matter, so DAD is not a subset of ABCD. The second
+string is shorter than or just as long as the first.
+
+From http://programmingpraxis.com/2010/11/23/string-subsets/

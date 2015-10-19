@@ -63,6 +63,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 | 22 | Lowest common ancestor             | Yes     | No         | 1 | Oct 15  |
 | 23 | Binary Search Tree                 | Yes     | No         | 1 | Oct 17  |
 | 24 | Min stack                          | Yes     | No, ~20m   | 1 | Oct 18 |
+| 25 | String subset                      | Yes     | No, ~20m   | 1 | Oct 19 |
 
 ## Upcoming
 
@@ -174,5 +175,9 @@ pointers. Very straightforward solution.*
 
 *October 18, 2015. Min Stack in Clojure. ~20m solved, but not happy with
 non-datatyped it was. After looking around some I found what feels like The
-Right Way to do it using protocol IMinStack and defrecord MinStack, so I'm happy
-about that. Very terse. Interface, implementation and constructor.*
+Right Way to do it using protocol IMinStack and defrecord MinStack, so I'm
+happy about that. Very terse. Interface, implementation and constructor.*
+
+*October 19, 2015. String subset in Clojure. ~20m solved. Used loop-recur and
+O(nlogn), whereas O(n) is possible. OK but should get O(n) soln too (maybe in
+<1h though?)*
