@@ -1,2 +1,6 @@
 - add better solution for bingo
 - add test suite for bsearch (part 2)
+- look at solns for word-break:
+  http://benmabey.com/2011/08/14/word-break-in-clojure-and-ruby-and-laziness-in-ruby.html
+  http://pastebin.com/0L5F9uKA
+  http://programmingpraxis.com/2011/08/12/word-breaks/2/

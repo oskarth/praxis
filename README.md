@@ -36,33 +36,33 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 
 | ID  | Name                               | Spec?   | Fluent/TTS | # | Visited |
 |-----|------------------------------------|---------|------------|---|---------|
-| 001 | RPN                                | Yes     | No, ~3h    | 1 | Sep 28  |
-| 002 | Reverse string, functional         | Yes     | No, ~5m    | 2 | Oct 18  |
-| 003 | Reverse string, imperative         | Yes     | No, -      | 1 | Oct 18  |
-| 004 | Nth fibonacci (naive and linear)   | Yes     | Yes, ~5m   | 2 | Oct 19  |
-| XX | REST NOT CLASSIFIED YET  | | | | |
-|  4 | Print mul table up to 12x12.       | No      | No         | 1 | Sep 29  |
-|  5 | Sum up ints from a text file.      | No      | No         | 1 | Sep 29  |
-|  6 | Print odd numbers between 1 and 99 | No      | No         | 1 | Sep 29  |
-|  7 | Find the largest value in an array | No      | No         | 1 | Sep 29  |
-|  8 | Convert RGB to hexadecimal string  | No      | No         | 1 | Sep 29  |
-|  9 | Sieve of Eratosthenes.             | No      | No, ~1h    | 1 | Sep 30  |
-| 10 | TTT-API (long problem).            | No      | No, ~3h    | 1 | Sep 30  |
-| 11 | Bingo.                             | No      | No, ~3h    | 1 | Oct  1  |
-| 12 | Binary search                      | Yes     | No         | 2 | Oct 16  |
-| 13 | Queue.                             | No      | No         | 1 | Oct  3  |
-| 14 | Store credit.                      | No      | Maybe      | 1 | Oct  4  |
-| 15 | Reverse words (naive).             | No      | Maybe      | 1 | Oct  4  |
-| 16 | T9 to latin.                       | No      | No         | 1 | Oct  5  |
-| 17 | Population count.                  | No      | No         | 1 | Oct  6  |
-| 18 | Bubble sort.                       | No      | No         | 1 | Oct 11  |
-| 19 | Insertion sort.                    | No      | No         | 1 | Oct 11  |
-| 20 | Selection sort.                    | No      | No         | 1 | Oct 11  |
-| 21 | REST API.                          | No      | No         | 1 | Oct 13  |
-| 22 | Lowest common ancestor             | Yes     | No         | 1 | Oct 15  |
-| 23 | Binary Search Tree                 | Yes     | No         | 1 | Oct 17  |
-| 24 | Min stack                          | Yes     | No, ~20m   | 1 | Oct 18 |
-| 25 | String subset                      | Yes     | No, ~20m   | 1 | Oct 19 |
+|   1 | RPN                                | Yes     | No, ~3h    | 1 | Sep 28  |
+|   2 | Reverse string, functional         | Yes     | No, ~5m    | 2 | Oct 18  |
+|   3 | Reverse string, imperative         | Yes     | No, -      | 1 | Oct 18  |
+|   4 | Nth fibonacci (naive and linear)   | Yes     | Yes, ~5m   | 2 | Oct 19  |
+|   5 | Print mul table up to 12x12.       | No      | No         | 1 | Sep 29  |
+|   6 | Sum up ints from a text file.      | No      | No         | 1 | Sep 29  |
+|   7 | Print odd numbers between 1 and 99 | No      | No         | 1 | Sep 29  |
+|   8 | Find the largest value in an array | No      | No         | 1 | Sep 29  |
+|   9 | Convert RGB to hexadecimal string  | No      | No         | 1 | Sep 29  |
+|  10 | Sieve of Eratosthenes.             | No      | No, ~1h    | 1 | Sep 30  |
+|  11 | TTT-API (long problem).            | No      | No, ~3h    | 1 | Sep 30  |
+|  12 | Bingo.                             | No      | No, ~3h    | 1 | Oct  1  |
+|  13 | Binary search                      | Yes     | No         | 2 | Oct 16  |
+|  14 | Queue.                             | No      | No         | 1 | Oct  3  |
+|  15 | Store credit.                      | No      | Maybe      | 1 | Oct  4  |
+|  16 | Reverse words (naive).             | No      | Maybe      | 1 | Oct  4  |
+|  17 | T9 to latin.                       | No      | No         | 1 | Oct  5  |
+|  18 | Population count.                  | No      | No         | 1 | Oct  6  |
+|  19 | Bubble sort.                       | No      | No         | 1 | Oct 11  |
+|  20 | Insertion sort.                    | No      | No         | 1 | Oct 11  |
+|  21 | Selection sort.                    | No      | No         | 1 | Oct 11  |
+|  22 | REST API.                          | No      | No         | 1 | Oct 13  |
+|  23 | Lowest common ancestor             | Yes     | No         | 1 | Oct 15  |
+|  24 | Binary Search Tree                 | Yes     | No         | 1 | Oct 17  |
+|  25 | Min stack                          | Yes     | No, ~20m   | 1 | Oct 18 |
+|  26 | String subset                      | Yes     | No, ~20m   | 1 | Oct 19 |
+|  27 | Word break                         | Yes     | No, -      | 1 | Oct 20 |
 
 ## Upcoming
 
@@ -181,6 +181,10 @@ happy about that. Very terse. Interface, implementation and constructor.*
 O(nlogn), whereas O(n) is possible. OK but should get O(n) soln too (maybe in
 <1h though?)*
 
-*October 20, 2015. Nth fibonacci in Clojure, both naive and linear. Both took
+*October 19, 2015. Nth fibonacci in Clojure, both naive and linear. Both took
 ~5m (10m total), so better than expected! Yes, mastered. One problem or keep as
 two? Same problem. Integeroverflow before Stackoverflow*
+
+*October 20, 2015. Word break in Clojure. Spent ~1h but failed. Have to look
+more closely at solutions but not now. Interesting problem.*
+
