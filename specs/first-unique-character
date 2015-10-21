@@ -1,0 +1,8 @@
+Write a function that takes an input string and returns the first character from
+the string that is not repeated later in the string. For instance, the two
+letters “d” and “f” in the input string “aabcbcdeef” are non-repeating, and the
+function should return “d” since “f” appears later in the string. The function
+should return some indication if there are no non-repeating characters in the
+string.
+
+From http://programmingpraxis.com/2011/08/19/first-non-repeating-character/

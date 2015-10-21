@@ -63,6 +63,8 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |  25 | Min stack                          | Yes     | No, ~20m   | 1 | Oct 18 |
 |  26 | String subset                      | Yes     | No, ~20m   | 1 | Oct 19 |
 |  27 | Word break                         | Yes     | No, -      | 1 | Oct 20 |
+|  28 | First unique character             | Yes     | No, ~1h    | 1 | Oct 21 |
+
 
 ## Upcoming
 
@@ -188,3 +190,5 @@ two? Same problem. Integeroverflow before Stackoverflow*
 *October 20, 2015. Word break in Clojure. Spent ~1h but failed. Have to look
 more closely at solutions but not now. Interesting problem.*
 
+*October 21, 2015. First unique character. ~1h, not super clean and looked up
+some ideas.*
