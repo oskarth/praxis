@@ -1,0 +1,9 @@
+Implement pre-order, in-order and post-order traversal of a binary
+tree. As you visit a node, perform an arbitrary function.
+
+
+In addition to traversing a tree in pre-order or post-order, you
+should write functions that reconstruct the original tree given a list
+of the tree nodes in pre-order or post-order.
+
+From http://programmingpraxis.com/2013/10/18/binary-tree-traversal/

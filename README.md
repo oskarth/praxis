@@ -64,7 +64,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |  26 | String subset                      | Yes     | No, ~20m   | 1 | Oct 19 |
 |  27 | Word break                         | Yes     | No, -      | 1 | Oct 20 |
 |  28 | First unique character             | Yes     | No, ~1h    | 1 | Oct 21 |
-
+|  29 | Binary tree traversal              | Yes     | No, -      | 1 | Oct 22 |
 
 ## Upcoming
 
@@ -192,3 +192,7 @@ more closely at solutions but not now. Interesting problem.*
 
 *October 21, 2015. First unique character. ~1h, not super clean and looked up
 some ideas.*
+
+*October 22, 2015. Binary tree traversal. Fun! ~1h, but didn't get the
+ make-tree bit. Figure out what is meant by this. Get quicker at walk
+ fn logic.*
