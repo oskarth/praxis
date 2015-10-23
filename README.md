@@ -65,6 +65,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |  27 | Word break                         | Yes     | No, -      | 1 | Oct 20 |
 |  28 | First unique character             | Yes     | No, ~1h    | 1 | Oct 21 |
 |  29 | Binary tree traversal              | Yes     | No, -      | 1 | Oct 22 |
+|  30 | Median of five                     | Yes     | No, -      | 1 | Oct 23 |
 
 ## Upcoming
 
@@ -196,3 +197,8 @@ some ideas.*
 *October 22, 2015. Binary tree traversal. Fun! ~1h, but didn't get the
  make-tree bit. Figure out what is meant by this. Get quicker at walk
  fn logic.*
+
+*October 23, 2015. Median of five. ~1h but didn't manage to with
+ mutation (and logic). Quite tricky solution, depends on check
+ invariants (partial sortings) and then mutating variables a b c d e
+ with ifs. Possible it could be pattern matched nicely.*
