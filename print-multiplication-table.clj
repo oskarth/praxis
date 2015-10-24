@@ -16,5 +16,24 @@
       (println (format "%4d" row) "|"
                (apply str (map #(format "%4d" %) col))))))
 
-;; Q: if I eval (map #(* (inc row) %) (range 13)) can I temp bind row?
-;; Wrap in let, or smt
+
+;; Better solution. dotimes vs doseq
+;; doseq would work too, but you didn't use print?
+;; prn is also newline. Bah. dotimes better though cause impliclity doing
+;; range calc. A reason you haven't noticed print is because when you
+;; evaluate it it flushes (?) to newline!
+;; See this:
+;; (dotimes [x 4] (print 2))
+(defn times-table [n]
+  (dotimes [x n]
+    (dotimes [y n]
+      (print (format "%3d " (* (inc x) (inc y)))))
+    (println)))
+
+(comment
+  (let [n 4]
+    (doseq [x (range n)]
+      (doseq [y (range n)]
+        (print (format "%3d " (* (inc x) (inc y)))))
+      (println)))
+)

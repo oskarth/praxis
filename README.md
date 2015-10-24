@@ -40,8 +40,8 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |   2 | Reverse string, functional         | Yes     | No, ~5m    | 2 | Oct 18  |
 |   3 | Reverse string, imperative         | Yes     | No, -      | 1 | Oct 18  |
 |   4 | Nth fibonacci (naive and linear)   | Yes     | Yes, ~5m   | 2 | Oct 19  |
-|   5 | Print multiplication table.        | Yes     | No, ~1h    | 2 | Oct 24  |
-|   6 | Sum up ints from a text file.      | No      | No         | 1 | Sep 29  |
+|   5 | Print multiplication table         | Yes     | No, ~1h    | 2 | Oct 24  |
+|   6 | Sum ints from text file            | Yes     | Yes, ~5m   | 2 | Oct 24  |
 |   7 | Print odd numbers between 1 and 99 | No      | No         | 1 | Sep 29  |
 |   8 | Find the largest value in an array | No      | No         | 1 | Sep 29  |
 |   9 | Convert RGB to hexadecimal string  | No      | No         | 1 | Sep 29  |
@@ -205,4 +205,11 @@ some ideas.*
 
 *October 24, 2015. Multiplication table again. ~30m-1h, way too
  long. Lessons: which collections do I want? Bottom-up, bottom-up,
- bottom-up. Don't mess with headers until later.*
+ bottom-up. Don't mess with headers until later. Addendum: bigger
+ point is not using print! Didn't realize it was just adding, since I
+ normally eval. Also dotimes better than doseq here.*
+
+*October 24, 2015. File sum from file. ~5m, so counting it as
+ mastered. Interesting to do this in other languages too for basic IO?
+ Interestingly I did it differently this time: apply vs reduce + and
+ line-seq reader vs split on newline.*
