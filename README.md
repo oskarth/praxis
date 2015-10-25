@@ -60,12 +60,13 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |  22 | REST API.                          | No      | No         | 1 | Oct 13  |
 |  23 | Lowest common ancestor             | Yes     | No         | 1 | Oct 15  |
 |  24 | Binary Search Tree                 | Yes     | No         | 1 | Oct 17  |
-|  25 | Min stack                          | Yes     | No, ~20m   | 1 | Oct 18 |
-|  26 | String subset                      | Yes     | No, ~20m   | 1 | Oct 19 |
-|  27 | Word break                         | Yes     | No, -      | 1 | Oct 20 |
-|  28 | First unique character             | Yes     | No, ~1h    | 1 | Oct 21 |
-|  29 | Binary tree traversal              | Yes     | No, -      | 1 | Oct 22 |
-|  30 | Median of five                     | Yes     | No, -      | 1 | Oct 23 |
+|  25 | Min stack                          | Yes     | No, ~20m   | 1 | Oct 18  |
+|  26 | String subset                      | Yes     | No, ~20m   | 1 | Oct 19  |
+|  27 | Word break                         | Yes     | No, -      | 1 | Oct 20  |
+|  28 | First unique character             | Yes     | No, ~1h    | 1 | Oct 21  |
+|  29 | Binary tree traversal              | Yes     | No, -      | 1 | Oct 22  |
+|  30 | Median of five                     | Yes     | No, -      | 1 | Oct 23  |
+|  31 | Anagram                            | Yes     | No, -      | 1 | Oct 25  |
 
 ## Upcoming
 
@@ -213,3 +214,8 @@ some ideas.*
  mastered. Interesting to do this in other languages too for basic IO?
  Interestingly I did it differently this time: apply vs reduce + and
  line-seq reader vs split on newline.*
+
+*October 25, 2015. Anagrams in Clojure, ~1h. Tried to write permutate
+ but failed. Looked up Scheme implementation and need to study more to
+ understand. Their solution used clever trick: sign each word in dict
+ by sorting it and storing it in a map.*

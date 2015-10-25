@@ -1,0 +1,5 @@
+Write a program that, given a dictionary and an input word, prints all
+the anagrams of the input word. Also determine the largest anagram
+class in your dictionary.
+
+From http://programmingpraxis.com/2009/04/10/anagrams/
