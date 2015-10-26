@@ -1,0 +1,7 @@
+Build a spell checker based on tries. For example, a trie containing
+'car', 'cart', 'cat' and 'dog' should return that 'cat' is a valid
+word by following c-branch then a branch then t branch, then
+end-of-word indicator. Contrariwise, 'qarter' should return false
+quicker than hashing (read one character vs six characters).
+
+http://programmingpraxis.com/2009/04/17/spell-checking/

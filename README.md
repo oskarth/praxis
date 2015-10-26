@@ -67,6 +67,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |  29 | Binary tree traversal              | Yes     | No, -      | 1 | Oct 22  |
 |  30 | Median of five                     | Yes     | No, -      | 1 | Oct 23  |
 |  31 | Anagram                            | Yes     | No, -      | 1 | Oct 25  |
+|  32 | Spell checking                     | Yes     | N/A, ?     | 1 | Oct 26  |
 
 ## Upcoming
 
@@ -219,3 +220,11 @@ some ideas.*
  but failed. Looked up Scheme implementation and need to study more to
  understand. Their solution used clever trick: sign each word in dict
  by sorting it and storing it in a map.*
+
+*October 26, 2015. Spell checking trie in Clojure. ~20m. Feel pretty
+ good with my solution, but don't know how to evaluate it. To know if
+ my solution is reasonable, we would have to check that it's more
+ space-efficient than a normal hash map, and also that it's faster
+ because of fewer lookups. This is a lot of extra work, and also not a
+ natural problem for Clojure - the important part here is the concept
+ one I think.*
