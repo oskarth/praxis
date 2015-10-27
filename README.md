@@ -196,35 +196,34 @@ more closely at solutions but not now. Interesting problem.*
 *October 21, 2015. First unique character. ~1h, not super clean and looked up
 some ideas.*
 
-*October 22, 2015. Binary tree traversal. Fun! ~1h, but didn't get the
- make-tree bit. Figure out what is meant by this. Get quicker at walk
- fn logic.*
+*October 22, 2015. Binary tree traversal. Fun! ~1h, but didn't get the make-tree
+ bit. Figure out what is meant by this. Get quicker at walk fn logic.*
 
-*October 23, 2015. Median of five. ~1h but didn't manage to with
- mutation (and logic). Quite tricky solution, depends on check
- invariants (partial sortings) and then mutating variables a b c d e
- with ifs. Possible it could be pattern matched nicely.*
+*October 23, 2015. Median of five. ~1h but didn't manage to with mutation (and
+ logic). Quite tricky solution, depends on check invariants (partial sortings)
+ and then mutating variables a b c d e with ifs. Possible it could be pattern
+ matched nicely.*
 
-*October 24, 2015. Multiplication table again. ~30m-1h, way too
- long. Lessons: which collections do I want? Bottom-up, bottom-up,
- bottom-up. Don't mess with headers until later. Addendum: bigger
- point is not using print! Didn't realize it was just adding, since I
- normally eval. Also dotimes better than doseq here.*
+*October 24, 2015. Multiplication table again. ~30m-1h, way too long. Lessons:
+ which collections do I want? Bottom-up, bottom-up, bottom-up. Don't mess with
+ headers until later. Addendum: bigger point is not using print! Didn't realize
+ it was just adding, since I normally eval. Also dotimes better than doseq
+ here.*
 
-*October 24, 2015. File sum from file. ~5m, so counting it as
- mastered. Interesting to do this in other languages too for basic IO?
- Interestingly I did it differently this time: apply vs reduce + and
- line-seq reader vs split on newline.*
+*October 24, 2015. File sum from file. ~5m, so counting it as mastered.
+ Interesting to do this in other languages too for basic IO? Interestingly I did
+ it differently this time: apply vs reduce + and line-seq reader vs split on
+ newline.*
 
-*October 25, 2015. Anagrams in Clojure, ~1h. Tried to write permutate
- but failed. Looked up Scheme implementation and need to study more to
- understand. Their solution used clever trick: sign each word in dict
- by sorting it and storing it in a map.*
+*October 25, 2015. Anagrams in Clojure, ~1h. Tried to write permutate but
+ failed. Looked up Scheme implementation and need to study more to understand.
+ Their solution used clever trick: sign each word in dict by sorting it and
+ storing it in a map.*
 
-*October 26, 2015. Spell checking trie in Clojure. ~20m. Feel pretty
- good with my solution, but don't know how to evaluate it. To know if
- my solution is reasonable, we would have to check that it's more
- space-efficient than a normal hash map, and also that it's faster
- because of fewer lookups. This is a lot of extra work, and also not a
- natural problem for Clojure - the important part here is the concept
- one I think.*
+*October 26, 2015. Spell checking trie in Clojure. ~20m. Feel pretty good with
+ my solution, but don't know how to evaluate it. To know if my solution is
+ reasonable, we would have to check that it's more space-efficient than a normal
+ hash map, and also that it's faster because of fewer lookups. This is a lot of
+ extra work, and also not a natural problem for Clojure - the important part
+ here is the concept one I think.*
+
