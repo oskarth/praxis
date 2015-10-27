@@ -68,6 +68,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |  30 | Median of five                     | Yes     | No, -      | 1 | Oct 23  |
 |  31 | Anagram                            | Yes     | No, -      | 1 | Oct 25  |
 |  32 | Spell checking                     | Yes     | N/A, ?     | 1 | Oct 26  |
+|  33 | String search brute force          | Yes     | No, ~20m   | 1 | Oct 27  |
 
 ## Upcoming
 
@@ -196,29 +197,30 @@ more closely at solutions but not now. Interesting problem.*
 *October 21, 2015. First unique character. ~1h, not super clean and looked up
 some ideas.*
 
-*October 22, 2015. Binary tree traversal. Fun! ~1h, but didn't get the make-tree
- bit. Figure out what is meant by this. Get quicker at walk fn logic.*
+*October 22, 2015. Binary tree traversal. Fun! ~1h, but didn't get the
+ make-tree bit. Figure out what is meant by this. Get quicker at walk
+ fn logic.*
 
-*October 23, 2015. Median of five. ~1h but didn't manage to with mutation (and
- logic). Quite tricky solution, depends on check invariants (partial sortings)
- and then mutating variables a b c d e with ifs. Possible it could be pattern
- matched nicely.*
+*October 23, 2015. Median of five. ~1h but didn't manage to with
+ mutation (and logic). Quite tricky solution, depends on check
+ invariants (partial sortings) and then mutating variables a b c d e
+ with ifs. Possible it could be pattern matched nicely.*
 
-*October 24, 2015. Multiplication table again. ~30m-1h, way too long. Lessons:
- which collections do I want? Bottom-up, bottom-up, bottom-up. Don't mess with
- headers until later. Addendum: bigger point is not using print! Didn't realize
- it was just adding, since I normally eval. Also dotimes better than doseq
- here.*
+*October 24, 2015. Multiplication table again. ~30m-1h, way too
+ long. Lessons: which collections do I want? Bottom-up, bottom-up,
+ bottom-up. Don't mess with headers until later. Addendum: bigger
+ point is not using print! Didn't realize it was just adding, since I
+ normally eval. Also dotimes better than doseq here.*
 
-*October 24, 2015. File sum from file. ~5m, so counting it as mastered.
- Interesting to do this in other languages too for basic IO? Interestingly I did
- it differently this time: apply vs reduce + and line-seq reader vs split on
- newline.*
+*October 24, 2015. File sum from file. ~5m, so counting it as
+ mastered. Interesting to do this in other languages too for basic IO?
+ Interestingly I did it differently this time: apply vs reduce + and
+ line-seq reader vs split on newline.*
 
 *October 25, 2015. Anagrams in Clojure, ~1h. Tried to write permutate but
- failed. Looked up Scheme implementation and need to study more to understand.
- Their solution used clever trick: sign each word in dict by sorting it and
- storing it in a map.*
+ failed. Looked up Scheme implementation and need to study more to
+ understand. Their solution used clever trick: sign each word in dict
+ by sorting it and storing it in a map.*
 
 *October 26, 2015. Spell checking trie in Clojure. ~20m. Feel pretty good with
  my solution, but don't know how to evaluate it. To know if my solution is
@@ -227,3 +229,6 @@ some ideas.*
  extra work, and also not a natural problem for Clojure - the important part
  here is the concept one I think.*
 
+*October 27, 2015. String search brute force in Clojure. ~20-30 min. A
+ lot of incidential stuff with editor etc. Seems reasonably
+ straightforward, logic-wise though.*
