@@ -42,7 +42,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |   4 | Nth fibonacci (naive and linear)   | Yes     | Yes, ~5m   | 2 | Oct 19  |
 |   5 | Print multiplication table         | Yes     | No, ~1h    | 2 | Oct 24  |
 |   6 | Sum ints from text file            | Yes     | Yes, ~5m   | 2 | Oct 24  |
-|   7 | Print odd numbers between 1 and 99 | No      | No         | 1 | Sep 29  |
+|   7 | Print odd numbers between 1 and 99 | Yes     | Yes, ~5m   | 2 | Oct 28  |
 |   8 | Find the largest value in an array | No      | No         | 1 | Sep 29  |
 |   9 | Convert RGB to hexadecimal string  | No      | No         | 1 | Sep 29  |
 |  10 | Sieve of Eratosthenes.             | No      | No, ~1h    | 1 | Sep 30  |
@@ -232,3 +232,8 @@ some ideas.*
 *October 27, 2015. String search brute force in Clojure. ~20-30 min. A
  lot of incidential stuff with editor etc. Seems reasonably
  straightforward, logic-wise though.*
+
+*October 28, 2015. Print odd numbers between 1 and 99 in Clojure,
+ ~1m. Very tired and little time so I did this admittely too easy (but
+ no such thing?) task. Mastered yes. More interesting in different
+ languages though, given that it's mastered.*
