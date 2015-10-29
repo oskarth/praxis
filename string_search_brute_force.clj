@@ -7,6 +7,7 @@
           (= (get pattern pi) (get string si)) (recur (inc pi) (inc si))
           :else (recur 0 (inc si)))))
 
+
 (comment
 
   (def pattern "foo")
