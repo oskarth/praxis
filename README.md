@@ -43,7 +43,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |   5 | Print multiplication table         | Yes     | No, ~1h    | 2 | Oct 24  |
 |   6 | Sum ints from text file            | Yes     | Yes, ~5m   | 2 | Oct 24  |
 |   7 | Print odd numbers between 1 and 99 | Yes     | Yes, ~5m   | 2 | Oct 28  |
-|   8 | Find the largest value in an array | No      | No         | 1 | Sep 29  |
+|   8 | Find the largest value in an array | Yes     | Yes, ~5m   | 2 | Oct 29  |
 |   9 | Convert RGB to hexadecimal string  | No      | No         | 1 | Sep 29  |
 |  10 | Sieve of Eratosthenes.             | No      | No, ~1h    | 1 | Sep 30  |
 |  11 | TTT-API (long problem).            | No      | No, ~3h    | 1 | Sep 30  |
@@ -237,3 +237,6 @@ some ideas.*
  ~1m. Very tired and little time so I did this admittely too easy (but
  no such thing?) task. Mastered yes. More interesting in different
  languages though, given that it's mastered.*
+
+*October 29, 2015. Find max in array, Clojure. Same as yesterday, ~2m,
+ mastered, very easy.*
