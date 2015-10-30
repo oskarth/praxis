@@ -44,7 +44,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |   6 | Sum ints from text file            | Yes     | Yes, ~5m   | 2 | Oct 24  |
 |   7 | Print odd numbers between 1 and 99 | Yes     | Yes, ~5m   | 2 | Oct 28  |
 |   8 | Find the largest value in an array | Yes     | Yes, ~5m   | 2 | Oct 29  |
-|   9 | Convert RGB to hexadecimal string  | No      | No         | 1 | Sep 29  |
+|   9 | Convert RGB to hexadecimal         | Yes     | Yes, ~5m   | 2 | Oct 30  |
 |  10 | Sieve of Eratosthenes.             | No      | No, ~1h    | 1 | Sep 30  |
 |  11 | TTT-API (long problem).            | No      | No, ~3h    | 1 | Sep 30  |
 |  12 | Bingo.                             | No      | No, ~3h    | 1 | Oct  1  |
@@ -240,3 +240,7 @@ some ideas.*
 
 *October 29, 2015. Find max in array, Clojure. Same as yesterday, ~2m,
  mastered, very easy.*
+
+*October 30, 2015. RGB to hex in Clojure. Same as yesterday, ~5m. Much
+ simpler than last one, had to look up throw though but that's a
+ general error thing, so consider mastered.*
