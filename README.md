@@ -69,6 +69,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |  31 | Anagram                            | Yes     | No, -      | 1 | Oct 25  |
 |  32 | Spell checking                     | Yes     | N/A, ?     | 1 | Oct 26  |
 |  33 | String search brute force          | Yes     | No, ~20m   | 1 | Oct 27  |
+|  34 | Search in ascending matrix         | Yes     | No, -      | 1 | Oct 31  |
 
 ## Upcoming
 
@@ -244,3 +245,6 @@ some ideas.*
 *October 30, 2015. RGB to hex in Clojure. Same as yesterday, ~5m. Much
  simpler than last one, had to look up throw though but that's a
  general error thing, so consider mastered.*
+
+*October 31, 2015. Search in ascending matrix in Clojure. Naive version ~20m,
+hint at strategy for O(m+n) algo but didn't succeed in implementing in 30m-1h.*

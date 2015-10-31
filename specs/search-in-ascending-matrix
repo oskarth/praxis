@@ -1,0 +1,16 @@
+Given an m by n matrix of integers with each row and column in
+ascending order, search the matrix and find the row and column where a
+key k appears, or report that k is not in the matrix. For instance, in
+the matrix
+
+ 1  5  7  9
+ 4  6 10 15
+ 8 11 12 19
+ 14 16 18 21
+
+the key 11 appears in row 2, column 1 (indexing from 0) and the key 13
+is not present in the matrix. The obvious algorithm takes time O(m ×
+n) to search the matrix row-by-row, but you must exploit the order in
+the matrix to find an algorithm that takes time O(m + n).
+
+From http://programmingpraxis.com/2012/02/10/search-in-an-ascending-matrix/
