@@ -248,3 +248,6 @@ some ideas.*
 
 *October 31, 2015. Search in ascending matrix in Clojure. Naive version ~20m,
 hint at strategy for O(m+n) algo but didn't succeed in implementing in 30m-1h.*
+
+*November 1, 2015. Minor work on string search in Clojure, searching for
+multiple in dictionary and displaying words.*
