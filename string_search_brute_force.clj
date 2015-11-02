@@ -12,18 +12,23 @@
 (comment
   ;; doing some keyboard experiments, so not a lot of code but something.
 
+  ;; Notes:
+  ;; Take dictionary, sort words then autocomplete fn. Actually that's a separate problem! Good.
+  ;; Show next 10 autocompletes.
+  ;; Starting to like spacemacs.
+
   (def pattern "foo")
   (def string "hello foo bar there")
 
   (def dict (slurp "/usr/share/dict/words"))
   (def mindict (apply str (take 1000 dict)))
-  
+
   (search "aar" mindict)
   (nth mindict 37)
 
   (find-string 34 "")
 
-  
+
   ;; what if last word? newline there too ithink
   (defn find-string [i s]
     (let [char (nth mindict i)]
@@ -31,7 +36,7 @@
           (find-string (inc i) (str s char)))))
 
 
-  
- 
+
+
   (= (search "foo" "hello foo bar") 9)
   (= (search "foo" "hello fo") false))

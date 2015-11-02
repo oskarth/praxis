@@ -70,6 +70,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |  32 | Spell checking                     | Yes     | N/A, ?     | 1 | Oct 26  |
 |  33 | String search brute force          | Yes     | No, ~20m   | 1 | Oct 27  |
 |  34 | Search in ascending matrix         | Yes     | No, -      | 1 | Oct 31  |
+|  35 | Autocomplete                       | No      | No, -      | 1 | Nov 02  |
 
 ## Upcoming
 
@@ -251,3 +252,5 @@ hint at strategy for O(m+n) algo but didn't succeed in implementing in 30m-1h.*
 
 *November 1, 2015. Minor work on string search in Clojure, searching for
 multiple in dictionary and displaying words.*
+
+*November 2, 2015. Autocomplete in Clojure. ~1.5h, binary search / substring. Still a work in progress.*
