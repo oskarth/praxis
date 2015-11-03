@@ -1,18 +1,10 @@
 (ns autocomplete)
 
-;; 1. Read in dictionary
-;; 2. Sort it (it's already sorted)
-;; 3. Write autocomplete function that
-;;    - takes a substring
-;;    - does binary search on substring and finds closest start match
-;;    - return up to 10 next words, conditional on being substrings
-
-;; 1915
 (def raw-dict (slurp "/usr/share/dict/words"))
 
 (def words (clojure.string/split (apply str raw-dict) #"\n"))
 
-(def sorted-words (sort words))
+(def sorted-words (into [] (sort words)))
 
 (def small-dict
   ["abacus"
@@ -20,21 +12,34 @@
    "fool"
    "hardly"])
 
-(count sorted-words)
+(defn min' [x y] (if (nil? x) y (min x y)))
 
-(take 10 sorted-words)
+(defn subs? [s r]
+  (= s (apply str (take (count s) r))))
 
-;; TODO: check substring too
-(defn binary-search [x xs]
-  (loop [lo 0 hi (dec (count xs))]
-    (if (< hi lo) nil
-        (let [mid (quot (+ lo hi) 2)]
-          (cond (neg? (compare x (nth xs mid))) (recur lo (dec mid))
-                (pos? (compare x (nth xs mid))) (recur (inc mid) hi)
-                :else            mid)))))
+(defn find-first-substring
+  "Binary searches over ss until it finds the first substring."
+  [s ss]
+  (loop [lo 0
+         hi (dec (count ss))
+         res nil]
+    (if (< hi lo) res
+        (let [mid (quot (+ lo hi) 2)
+              cmp (compare s (nth ss mid))
+              sub (subs? s (nth ss mid))
+              newres (if sub (nil-or-min res mid) res)]
+          (println "lo mid hi cmp sub res newres" lo mid hi cmp sub res newres)
+          (cond
+            (neg? cmp) (recur lo (dec mid) newres)
+            (pos? cmp) (recur (inc mid) hi newres)
+            :else newres)))))
 
-(binary-search "Ababua" sorted-words)
+(find-first-substring "foo" small-dict)
+(find-first-substring "fool" small-dict)
+(find-first-substring "foolhard" small-dict)
 
-;; This should return index 1, cause that's prefix substring match
-;; foo is a substring of foobar, then +1 and continue to look
-(binary-search "foo" small-dict)
+(find-first-substring "abil" sorted-words)
+
+(nth sorted-words 25395)
+
+;; Nice!
