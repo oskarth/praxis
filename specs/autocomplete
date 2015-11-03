@@ -1,0 +1,1 @@
+Write a function that, given a input substring, a max number N and a sample dictionary (use the standard unix one) returns the top N results that match the substring results.

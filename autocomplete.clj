@@ -28,7 +28,6 @@
               cmp (compare s (nth ss mid))
               sub (subs? s (nth ss mid))
               newres (if sub (nil-or-min res mid) res)]
-          (println "lo mid hi cmp sub res newres" lo mid hi cmp sub res newres)
           (cond
             (neg? cmp) (recur lo (dec mid) newres)
             (pos? cmp) (recur (inc mid) hi newres)
@@ -42,4 +41,14 @@
 
 (nth sorted-words 25395)
 
+(defn get-substrings [s ss n]
+  (if-let [i (find-first-substring s ss)]
+    (filter
+     #(subs? s %)
+     (map #(nth ss (+ i %)) (range n)))))
+
 ;; Nice!
+;; Up to top N autocomplete
+(get-substrings "abi" sorted-words 10)
+(get-substrings "abil" sorted-words 10)
+(get-substrings "foohardyhar" sorted-words 10)
