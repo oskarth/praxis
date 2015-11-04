@@ -258,4 +258,4 @@ multiple in dictionary and displaying words.*
 
 *Novemeber 3, 2015. Autocomplete in Clojure, continued. ~1h, figured out a nice find first substring using binary search algo. Still WIP, next is to get N following substring linearly, should be easy. Update: added top N substring.*
 
-*November 4, 2015. Rot13 in Clojure. Failed in ~1h. Too late/tired, think I should have sketched out more on paper. Also didn't manage to get the intrinsic rotation from problem. Oh well, live and learn.*
+*November 4, 2015. Rot13 in Clojure. Failed in ~1h. Too late/tired, think I should have sketched out more on paper. Also didn't manage to get the intrinsic rotation from problem. Oh well, live and learn. UPDATE: 20m later I find a beautiful solution after just going after the lookup-table idea.*
