@@ -71,6 +71,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |  33 | String search brute force          | Yes     | No, ~20m   | 1 | Oct 27  |
 |  34 | Search in ascending matrix         | Yes     | No, -      | 1 | Oct 31  |
 |  35 | Autocomplete                       | Yes     | No, ~3h    | 1 | Nov 03  |
+|  36 | rot13                              | Yes     | No, -      | 1 | Nov 04  |
 
 ## Upcoming
 
@@ -256,3 +257,5 @@ multiple in dictionary and displaying words.*
 *November 2, 2015. Autocomplete in Clojure. ~1.5h, binary search / substring. Still a work in progress.*
 
 *Novemeber 3, 2015. Autocomplete in Clojure, continued. ~1h, figured out a nice find first substring using binary search algo. Still WIP, next is to get N following substring linearly, should be easy. Update: added top N substring.*
+
+*November 4, 2015. Rot13 in Clojure. Failed in ~1h. Too late/tired, think I should have sketched out more on paper. Also didn't manage to get the intrinsic rotation from problem. Oh well, live and learn.*
