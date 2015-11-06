@@ -73,6 +73,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |  35 | Autocomplete                       | Yes     | No, ~3h    | 1 | Nov 03  |
 |  36 | rot13                              | Yes     | No, -      | 1 | Nov 04  |
 |  37 | First available id                 | Yes     | No, ~20m   | 1 | Nov 05  |
+|  38 | String subset                      | Yes     | No, ~5m    | 1 | Nov 06  |
 
 ## Upcoming
 
@@ -257,8 +258,18 @@ multiple in dictionary and displaying words.*
 
 *November 2, 2015. Autocomplete in Clojure. ~1.5h, binary search / substring. Still a work in progress.*
 
-*Novemeber 3, 2015. Autocomplete in Clojure, continued. ~1h, figured out a nice find first substring using binary search algo. Still WIP, next is to get N following substring linearly, should be easy. Update: added top N substring.*
+*Novemeber 3, 2015. Autocomplete in Clojure, continued. ~1h, figured out a nice
+ find first substring using binary search algo. Still WIP, next is to get N
+ following substring linearly, should be easy. Update: added top N substring.*
 
-*November 4, 2015. Rot13 in Clojure. Failed in ~1h. Too late/tired, think I should have sketched out more on paper. Also didn't manage to get the intrinsic rotation from problem. Oh well, live and learn. UPDATE: 20m later I find a beautiful solution after just going after the lookup-table idea.*
+*November 4, 2015. Rot13 in Clojure. Failed in ~1h. Too late/tired, think I
+ should have sketched out more on paper. Also didn't manage to get the intrinsic
+ rotation from problem. Oh well, live and learn. UPDATE: 20m later I find a
+ beautiful solution after just going after the lookup-table idea.*
 
-*November 5, 2015. First available ID in Clojure. ~20-30m, part of interview. Went ok but took a bit too long.*
+*November 5, 2015. First available ID in Clojure. ~20-30m, part of interview.
+ Went ok but took a bit too long.*
+
+*November 6, 2015. String subsets in Clojure. ~5-10m, but I solved the wrong
+ problem - didn't read problem carefully enough, count matters (so not really
+ subset). Do again.*
