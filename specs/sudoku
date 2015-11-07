@@ -1,0 +1,6 @@
+Given a 9x9 sudoku grid of cells, some containing digits, fill the empty cells
+with the digits 1 through 9 in such a way that there's no row, column or 3x3
+subgrid contains the same digits two or more times. Assume the puzzle is
+well-formed.
+
+Solve the following puzzle: http://programmingpraxis.com/2009/02/19/sudoku/
