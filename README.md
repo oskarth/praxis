@@ -276,3 +276,5 @@ multiple in dictionary and displaying words.*
 
 *November 7, 2015. Start on sudoku solver in Clojure, 30m-1h. Mostly read
 Norvig, not enough coding.*
+
+*November 8, 2015. Took day off.*
