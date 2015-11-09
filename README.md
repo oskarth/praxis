@@ -38,7 +38,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |-----|------------------------------------|---------|------------|---|---------|
 |   1 | RPN                                | Yes     | No, ~3h    | 1 | Sep 28  |
 |   2 | Reverse string, functional         | Yes     | No, ~5m    | 2 | Oct 18  |
-|   3 | Reverse string, imperative         | Yes     | No, -      | 1 | Oct 18  |
+|   3 | Reverse string, imperative         | Yes     | No, ~5m    | 2 | Nov 09  |
 |   4 | Nth fibonacci (naive and linear)   | Yes     | Yes, ~5m   | 2 | Oct 19  |
 |   5 | Print multiplication table         | Yes     | No, ~1h    | 2 | Oct 24  |
 |   6 | Sum ints from text file            | Yes     | Yes, ~5m   | 2 | Oct 24  |
@@ -278,3 +278,5 @@ multiple in dictionary and displaying words.*
 Norvig, not enough coding.*
 
 *November 8, 2015. Took day off.*
+
+*November 9, 2015. String reverse in C. Solved in 9m but didn't use string stdlib. OK but do again in a month or so for fluency.*
