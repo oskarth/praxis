@@ -256,7 +256,8 @@ hint at strategy for O(m+n) algo but didn't succeed in implementing in 30m-1h.*
 *November 1, 2015. Minor work on string search in Clojure, searching for
 multiple in dictionary and displaying words.*
 
-*November 2, 2015. Autocomplete in Clojure. ~1.5h, binary search / substring. Still a work in progress.*
+*November 2, 2015. Autocomplete in Clojure. ~1.5h, binary search / substring.
+ Still a work in progress.*
 
 *Novemeber 3, 2015. Autocomplete in Clojure, continued. ~1h, figured out a nice
  find first substring using binary search algo. Still WIP, next is to get N
@@ -279,4 +280,9 @@ Norvig, not enough coding.*
 
 *November 8, 2015. Took day off.*
 
-*November 9, 2015. String reverse in C. Solved in 9m but didn't use string stdlib. OK but do again in a month or so for fluency.*
+*November 9, 2015. String reverse in C. Solved in 9m but didn't use string
+ stdlib. OK but do again in a month or so for fluency.*
+
+*November 10, 2015. Word search in Clojure. Started yesterday, took ~5h in two
+tries. Fun! Not mastered, and maybe not optimal strategy, but pretty satisfied
+with it.*
