@@ -74,6 +74,8 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |  36 | rot13                              | Yes     | No, -      | 1 | Nov 04  |
 |  37 | First available id                 | Yes     | No, ~20m   | 1 | Nov 05  |
 |  38 | String subset                      | Yes     | No, ~5m    | 1 | Nov 06  |
+|  39 | Sudoku                             | Yes     | No, -      | 1 | Nov 07  |
+|  40 | Word search                        | Yes     | No, ~3h    | 1 | Nov 10  |
 
 ## Upcoming
 
