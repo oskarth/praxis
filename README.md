@@ -40,7 +40,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |   2 | Reverse string, functional         | Yes     | No, ~5m    | 2 | Oct 18  |
 |   3 | Reverse string, imperative         | Yes     | No, ~5m    | 2 | Nov 09  |
 |   4 | Nth fibonacci (naive and linear)   | Yes     | Yes, ~5m   | 2 | Oct 19  |
-|   5 | Print multiplication table         | Yes     | No, ~1h    | 2 | Oct 24  |
+|   5 | Print multiplication table         | Yes     | No, ~5m    | 3 | Nov 11  |
 |   6 | Sum ints from text file            | Yes     | Yes, ~5m   | 2 | Oct 24  |
 |   7 | Print odd numbers between 1 and 99 | Yes     | Yes, ~5m   | 2 | Oct 28  |
 |   8 | Find the largest value in an array | Yes     | Yes, ~5m   | 2 | Oct 29  |
@@ -288,3 +288,6 @@ Norvig, not enough coding.*
 *November 10, 2015. Word search in Clojure. Started yesterday, took ~5h in two
 tries. Fun! Not mastered, and maybe not optimal strategy, but pretty satisfied
 with it.*
+
+*November 11, 2015. Short print multiplication table. 5-10m, forgot about print
+ fn again, so will do again in some time.*
