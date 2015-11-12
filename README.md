@@ -82,6 +82,9 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 - REST API in Clojure with BA
 - Dashboard in Clojurescript
 
+Break down small problems, like hosting web-server etc? Just to make it more
+mini. Routes or w/e. Don't know.
+
 ## Log
 
 *September 28, 2015. RPN Calculator in Clojure. Took too long, several attempts
@@ -291,3 +294,5 @@ with it.*
 
 *November 11, 2015. Short print multiplication table. 5-10m, forgot about print
  fn again, so will do again in some time.*
+
+*November 12, 2015. Wanted to TTT or RPN, but too tired to make a real effort.*
