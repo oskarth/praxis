@@ -76,6 +76,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |  38 | String subset                      | Yes     | No, ~5m    | 1 | Nov 06  |
 |  39 | Sudoku                             | Yes     | No, -      | 1 | Nov 07  |
 |  40 | Word search                        | Yes     | No, ~3h    | 1 | Nov 10  |
+|  41 | Head and tail                      | Yes     | Yes, ~5m   | 1 | Nov 13  |
 
 ## Upcoming
 
@@ -296,3 +297,6 @@ with it.*
  fn again, so will do again in some time.*
 
 *November 12, 2015. Wanted to TTT or RPN, but too tired to make a real effort.*
+
+*November 13, 2015. Very simple head and tail in Clojure, ~1m. No real
+ constraints. Perhaps good for new languages?*
