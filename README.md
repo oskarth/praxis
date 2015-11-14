@@ -36,7 +36,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 
 | ID  | Name                               | Spec?   | Fluent/TTS | # | Visited |
 |-----|------------------------------------|---------|------------|---|---------|
-|   1 | RPN                                | Yes     | No, ~3h    | 1 | Sep 28  |
+|   1 | RPN                                | Yes     | No, ~1h    | 2 | Nov 14  |
 |   2 | Reverse string, functional         | Yes     | No, ~5m    | 2 | Oct 18  |
 |   3 | Reverse string, imperative         | Yes     | No, ~5m    | 2 | Nov 09  |
 |   4 | Nth fibonacci (naive and linear)   | Yes     | Yes, ~5m   | 2 | Oct 19  |
@@ -300,3 +300,5 @@ with it.*
 
 *November 13, 2015. Very simple head and tail in Clojure, ~1m. No real
  constraints. Perhaps good for new languages?*
+
+*November 14, 2015. RPN in Clojure. ~1h, didn't do full state-keep. Felt fairly simple, but still unsure about best strategy for parsing.*
