@@ -302,3 +302,5 @@ with it.*
  constraints. Perhaps good for new languages?*
 
 *November 14, 2015. RPN in Clojure. ~1h, didn't do full state-keep. Felt fairly simple, but still unsure about best strategy for parsing.*
+
+*November 15, 2015. Travel day.**
