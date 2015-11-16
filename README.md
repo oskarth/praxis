@@ -48,7 +48,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |  10 | Sieve of Eratosthenes.             | No      | No, ~1h    | 1 | Sep 30  |
 |  11 | TTT-API (long problem).            | No      | No, ~3h    | 1 | Sep 30  |
 |  12 | Bingo.                             | No      | No, ~3h    | 1 | Oct  1  |
-|  13 | Binary search                      | Yes     | No         | 2 | Oct 16  |
+|  13 | Binary search                      | Yes     | Yes, ~5m   | 3 | Nov 16  |
 |  14 | Queue.                             | No      | No         | 1 | Oct  3  |
 |  15 | Store credit.                      | No      | Maybe      | 1 | Oct  4  |
 |  16 | Reverse words (naive).             | No      | Maybe      | 1 | Oct  4  |
@@ -303,4 +303,6 @@ with it.*
 
 *November 14, 2015. RPN in Clojure. ~1h, didn't do full state-keep. Felt fairly simple, but still unsure about best strategy for parsing.*
 
-*November 15, 2015. Travel day.**
+*November 15, 2015. Travel day.*
+
+*November 16, 2015. Binary search in Clojure. ~5m (9m), felt straightforward and fluent. Good!*
