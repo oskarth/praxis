@@ -77,6 +77,8 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |  39 | Sudoku                             | Yes     | No, -      | 1 | Nov 07  |
 |  40 | Word search                        | Yes     | No, ~3h    | 1 | Nov 10  |
 |  41 | Head and tail                      | Yes     | Yes, ~5m   | 1 | Nov 13  |
+|  42 | Loan amortization                  | Yes     | No,        | 1 | Nov 17  |
+
 
 ## Upcoming
 
@@ -306,3 +308,6 @@ with it.*
 *November 15, 2015. Travel day.*
 
 *November 16, 2015. Binary search in Clojure. ~5m (9m), felt straightforward and fluent. Good!*
+
+*November 17, 2015. Loan amortization in Clojure. ~20m but not really
+ understanding what is asked. Limited internet access - will revisit soon so I can investigate.*
