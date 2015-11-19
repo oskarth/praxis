@@ -312,4 +312,5 @@ with it.*
 *November 17, 2015. Loan amortization in Clojure. ~20m but not really
  understanding what is asked. Limited internet access - will revisit soon so I can investigate.*
 
-*November 18, 2015. Travel day.*
+*November 18-19, 2015. Travel day.*
+
