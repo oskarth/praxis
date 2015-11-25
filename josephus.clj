@@ -1,56 +1,32 @@
-(ns )
+(ns josephus)
 
-;; 940
+;; ~1h
 
+;; XXX: Might've messed something up
 (defn josephus [n m]
-  (loop [people (range n) acc []]
-    (let [match? #(zero? (mod % m))]
-      (if (seq (rest people))
-        ;; for loop?
-        ;; something something remove/filter, too tired.
-        ;; (for [i (range (count people)) :when (match? i)])
-        (recur (remove match? people) (filter match? people))
-        acc))))
+  (loop [people (range n) exec []]
+    (if (seq (rest people))
+      (let [pos (range (count people))
+            mth? #(zero? (mod % m))
+            map-nth (fn [coll] (map #(nth people %) coll))]
+        (recur (map-nth (remove mth? pos))
+                   (concat exec (map-nth (filter mth? pos)))))
+      (concat exec people))))
 
-(def match? #(zero? (mod % 3)))
-(def people (range 41))
-(def people (remove match? people))
-people
-;;(for [i (range 10) :when (match? i)] i)
-
-(for [i (range 10)]
-  i)
-
-;; for each thingy we need to calc pops
-
-(filter match? people)
-
-;; list of 41 people, numbered from 0 to n-1 in order of execution
-;; taking every 3rd one
+;; oh, mine is incorrect. I get 0 3, should be 2 5!
 (josephus 41 3)
+(last (josephus 41 3)) ;; 40th pos
 
-;; say we take every 3rd person and put in list.
-;; thn we call josephus again with that
 
-;; we are filtering modulo
-;; assuming we have 10 people and take every 3rd
-(range 10)
+;; Solutions
+;; Can think of it as front and back queue, a la this
 
-;; not on value, on key
-(def pred-our #(zero? (mod % 3)))
-;; but: assumes on val, which is a bit wrong
+#_(defn josephus [n m]
+  (loop [idx m front (range n) back [] dead []]
+    (cond
+      (and (empty? front) (empty? back)) dead
+      (empty? front) (recur idx back [] dead)
+      (= idx 1) (recur m (next front) back (conj dead (first front)))
+      :else (recur (dec idx) (next front) (conj back (first front)) dead))))
 
-(filter #(zero? (mod % 3)) (range 10))
-
-;; keep going as long as there are more than 1 right
-
-;; still really tired.
-
-;; do this once, then we get new part?
-;;(take 1 (drop 2 (range 10)))
-
-;; then take and drop?
-
-(def coll (cycle (range 3)))
-
-(mod 10 3)
+(josephus 41 3)
