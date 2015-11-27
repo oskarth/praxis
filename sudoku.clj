@@ -1,29 +1,108 @@
-(ns sudoku)
+(ns sudoku
+  (:require [clojure.set :as set]))
 
-;; Started at 1340-1420 ish
+;; Fogus 2011
 
-;; Translating Norvig's Sudoku solver (http://norvig.com/sudoku.html)
-;; into Clojure.
+(def b1 '[3 - - - - 5 - 1 -
+          - 7 - - - 6 - 3 -
+          1 - - - 9 - - - -
+          7 - 8 - - - - 9 -
+          9 - - 4 - 8 - - 2
+          - 6 - - - - 5 - 1
+          - - - - 4 - - - 6
+          - 4 - 7 - - - 2 -
+          - 2 - 6 - - - - 3])
 
-(defn cross
-  "Cross product of elements in c1 and elements in c2."
-  [c1 c2]
-  (for [a c1 b c2] (str a b)))
+(defn prep [board]
+  (map #(partition 3 %)
+       (partition 9 board)))
 
-;; XXX: Can we use a better collection type for this?
-;; Maybe we should conj
-(def digits #{"1" "2" "3" "4" "5" "6" "7" "8" "9"})
-(def rows #{"A" "B" "C" "D" "E" "F" "G" "H" "I"})
-(def cols digits)
-(def squares (cross rows cols))
+(defn print-board [board]
+  (let [row-sep (apply str (repeat 37 "-"))]
+    (println row-sep)
+    (dotimes [row (count board)]
+      (print "| ")
+      (doseq [subrow (nth board row)]
+        (doseq [cell (butlast subrow)]
+          (print (str cell "   ")))
+        (print (str (last subrow) " | ")))
+      (println)
+      (when (zero? (mod (inc row) 3))
+        (println row-sep)))))
 
-(def unitlist) ;; concat of all
+;; (-> b1 prep print-board)
 
-(for [c cols] (cross rows c))
-(for [r rows] (cross r cols))
+(defn rows [board sz]
+  (partition sz board))
 
-;; for diagonals
-(for [r rows] (cross r cols))
+(defn row-for [board index sz]
+  (nth (rows board sz) (/ index 9)))
 
+(defn column-for [board index sz]
+  (let [col (mod index sz)]
+    (map #(nth % col)
+         (rows board sz))))
 
-;; OR I could do TTT.
+(row-for b1 1 9)
+(column-for b1 2 9)
+
+;; Why explicit size?
+;; "Need same behavior when grabbing cols of subgrids."
+
+;; XXX: grok how this works
+(defn subgrid-for [board i]
+  (let [rows (rows board 9)
+        sgcol (/ (mod i 9) 3)
+        sgrow (/ (/ i 9) 3)
+        grp-col (column-for (mapcat #(partition 3 %) rows) sgcol 3)
+        grp (take 3 (drop (* 3 (int sgrow)) grp-col))]
+    (flatten grp)))
+
+(column-for (mapcat #(partition 3 %) (rows b1 9)) 3 3)
+
+(doc mapcat)
+
+;; 1D representation
+(subgrid-for b1 0)
+
+;; Simple algo to solve:
+;; - place number in first empty square
+;; - check if constraints hold
+;; -- if so, start algo again
+;; -- if not, remove number and start algo again
+;; - repeat
+
+(defn numbers-present-for [board i]
+  (set
+   (concat (row-for board i 9)
+           (column-for board i 9)
+           (subgrid-for board i))))
+
+;; From Chapter 5
+(defn index [coll]
+  (cond
+    (map? coll) (seq coll)
+    (set? coll) (map vector coll coll)
+    :else (map vector (iterate inc 0) coll)))
+
+(defn pos [pred coll]
+  (for [[i v] (index coll) :when (pred v)] i))
+
+(defn possible-placements [board index]
+  (set/difference #{1 2 3 4 5 6 7 8 9}
+                  (numbers-present-for board index)))
+
+;; Need to study this.
+
+(defn solve [board]
+  (if-let [[i & _]
+           (and (some '#{-} board)
+                (pos '#{-} board))]
+    (flatten (map #(solve (assoc board i %))
+                  (possible-placements board i)))
+    board))
+
+(-> b1
+    solve
+    prep
+    print-board)

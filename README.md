@@ -74,7 +74,7 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 |  36 | rot13                              | Yes     | No, -      | 1 | Nov 04  |
 |  37 | First available id                 | Yes     | No, ~20m   | 1 | Nov 05  |
 |  38 | String subset                      | Yes     | No, ~5m    | 1 | Nov 06  |
-|  39 | Sudoku                             | Yes     | No, -      | 1 | Nov 07  |
+|  39 | Sudoku                             | Yes     | No, -      | 2 | Nov 27  |
 |  40 | Word search                        | Yes     | No, ~3h    | 1 | Nov 10  |
 |  41 | Head and tail                      | Yes     | Yes, ~5m   | 1 | Nov 13  |
 |  42 | Loan amortization                  | Yes     | No,        | 1 | Nov 17  |
@@ -318,3 +318,5 @@ with it.*
 *November 24, 2015. Flavius Josephus in Clojure. ~1h rough start, not done, still sleep deprived.*
 
 *November 25, 2015. Josephus again, got something working ish ~1h, but not best solution. Re-visit soon.*
+
+*November 26-27, 2015. Sudoku solver. ~1h copywork-style using Joy Of Clojure. Requires more studying.*
