@@ -89,6 +89,10 @@ imperative/functional, iterative/recursive, naive/optimized, etc.
 Break down small problems, like hosting web-server etc? Just to make it more
 mini. Routes or w/e. Don't know.
 
+## Experiment: Parsing Practice
+
+*December 13, 2015. CSV (http://programmingpraxis.com/2009/03/17/comma-separated-values/). 1h effort but noe. Got base case in ~20m, but lots of parsing/string manipulation undone. Realized my tests were a bit of a waste (~20m) because they test an artifact - doing visual diff now instead. Also realized we can think of it as a set of rules, or string manipulations, we do for fields etc.
+
 ## Log
 
 *September 28, 2015. RPN Calculator in Clojure. Took too long, several attempts
