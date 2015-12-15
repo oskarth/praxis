@@ -91,7 +91,9 @@ mini. Routes or w/e. Don't know.
 
 ## Experiment: Parsing Practice
 
-*December 13, 2015. CSV (http://programmingpraxis.com/2009/03/17/comma-separated-values/). 1h effort but noe. Got base case in ~20m, but lots of parsing/string manipulation undone. Realized my tests were a bit of a waste (~20m) because they test an artifact - doing visual diff now instead. Also realized we can think of it as a set of rules, or string manipulations, we do for fields etc.
+*December 13, 2015. CSV (http://programmingpraxis.com/2009/03/17/comma-separated-values/). 1h effort but noe. Got base case in ~20m, but lots of parsing/string manipulation undone. Realized my tests were a bit of a waste (~20m) because they test an artifact - doing visual diff now instead. Also realized we can think of it as a set of rules, or string manipulations, we do for fields etc.*
+
+*December 15, 2015. CSV again. Spent 1h. Started by dealing with embedded newlines. Got confused by quotation rules but realized it only quotes as a quote if it's in the beginning of a field. Almost got it, but there are a lot of edge cases: a meta lesson I learned is that what I really want is to make a parser state machine.*
 
 ## Log
 

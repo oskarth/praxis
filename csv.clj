@@ -1,62 +1,67 @@
-(ns csv
-  (require [clojure.test :refer [deftest testing is]]))
+(ns csv)
 
-;; 1330
+;; 2015
 
-;; does looking up solution help vs not?
+(def csv-file (slurp "sample.csv"))
 
-;; ASCII
-;; a line-termination-sequence is a CR character, or a line-feed character, or both characters in either order.
+;; Strategy for embedded newlines:
+;; Go over all chars, keeping track of matched quotations.
+;; If we are matched, go ahead and keep newline.
+;; If not matched, replace that newline with something else.
+;; Then split on newline, and deal with custom-newline separately.
 
-;; how do I see CRs?
+(defn process-newlines
+  ([cs] (process-newlines cs 0 true 1 false))
+  ([cs n matched tmp start]
+   (cond
+     (= n (count cs))
+     (clojure.pprint/pprint
+      (clojure.string/split cs #"\n"))
 
-;; Ok, been 1h.
+     (= (get cs n) \,)
+     (process-newlines cs (inc n) true tmp true)
 
-;; Cap at 90m? Or 1h?
+     (and (= (get cs n) \") start)
+     (process-newlines cs (inc n) false tmp false)
 
-;; ok clock in, 1h
+     (= (get cs n) \")
+     (process-newlines cs (inc n) true tmp false)
 
-;; XXX: doesn't deal well with embedded newlines
-(defn file->lines [filename]
-  (let [file (slurp filename)]
-    (clojure.string/split file #"\n")))
+     (= (get cs n) \newline)
+     ;; XXX: n count off now?
+     ;; OOPS: only when matched
+     (let [new-cs (apply str (concat (take n cs)
+                                     "NEWLINE"
+                                     (drop (inc n) cs)))]
 
-(def sample (file->lines "sample.csv"))
+       ;; XXX: something with n count and new-cs / cs I think.
+       (if matched
+         (process-newlines new-cs (inc n) matched (inc tmp) false)
+         (process-newlines cs (inc n) matched (inc tmp) false)))
+       ;;(do (prn (str tmp ": " matched " newline"))
 
-;; get rid of quoting
-;; various rules
+     :else
+     (process-newlines cs (inc n) matched tmp false))))
 
-(defn remove-quoting [s] (clojure.string/replace s "\"" ""))
-(defn comma-separate [ss] (clojure.string/split ss #","))
-(defn sep-join [ss sep] (clojure.string/join sep ss))
-;;(remove-quoting (second sample))
+;; 2104
+;; 2117, until 2130
 
-(defn parse-csv [coll sep]
-  (let [xss (map comma-separate coll)]
-    (map #(sep-join % sep) xss)))
+;; I don't understand this case wrt ", so I'm going to ignore it for now.
+;; NOTE: Deleted it in sample.csv for now.
+
+;; 9,123 456,123"456, 123 456 ,strange numbers
+
+;;#_(prn "\n\nFOUND NEWLINE STARTING AT" n (get cs n))
+
+;; Woah, there's a lot of things here.
+
+;; So am I correct in assuming that a field starting with " must be end-quoted, but this is not the case for inline "?
+
+;; A field starts with , - if we have a " after we are in a quote.
+
+(process-newlines csv-file)
+
+(count (clojure.string/split csv-file #"\n"))
 
 (clojure.pprint/pprint
- (parse-csv sample "|"))
-
-;; newlines go
-(defn save-off [filename coll]
-  (spit filename (clojure.string/join "\n" (parse-csv coll "|"))))
-
-(save-off "test.out" (file->lines "sample.csv"))
-
-;; lets write some tests here.
-;; oops, sin't what we are testing just an artifcat?
-;; 20m on this.
-
-(deftest csv
-  (testing "unquoed character strings, and more"
-    (let [raw-csv (slurp "sample.csv")
-          parsed (save-off "test.out" (file->lines "sample.csv"))
-          expected (slurp "expected.out")
-          output (slurp "test.out")]
-      (clojure.pprint/pprint (str "EXPECTED\n" expected))
-      (clojure.pprint/pprint (str "OUTPUT\n" output))
-      (is (= (first expected) (first output)))
-      (is (= (nth expected 15) (nth output 15)))
-      (is (= (nth expected 14) (nth output 14)))
-      )))
+ (clojure.string/split csv-file #"\n"))
