@@ -1,67 +1,165 @@
-(ns csv)
+(ns csv
+  (:require [clojure.test :refer [deftest is run-tests]]))
 
-;; 2015
+;; 60+60+40m+120 = 4.5h
 
-(def csv-file (slurp "sample.csv"))
+;; 4.5h spent on this. ok this is getting to be too much time commitment. I didn't manage to
+;; get it done in H4, so I have no reason to believe it wouldn't take H5, which
+;; is too long for me right now.
+;; => solution looky.
 
-;; Strategy for embedded newlines:
-;; Go over all chars, keeping track of matched quotations.
-;; If we are matched, go ahead and keep newline.
-;; If not matched, replace that newline with something else.
-;; Then split on newline, and deal with custom-newline separately.
+;; Hemibell
+;; H1 ~5m
+;; H2 ~20m
+;; H3 ~1h
+;; H4 ~3h
 
-(defn process-newlines
-  ([cs] (process-newlines cs 0 true 1 false))
-  ([cs n matched tmp start]
-   (cond
-     (= n (count cs))
-     (clojure.pprint/pprint
-      (clojure.string/split cs #"\n"))
+;; From old
+;; Why did it take me so long ~30m to make small test cases? Shoudl be first thing! Instead waste time on printing less or only in certain cases. Failure mode. Right thing: define small cases and test them!
 
-     (= (get cs n) \,)
-     (process-newlines cs (inc n) true tmp true)
+;; todo: quick macro to wrap/dewrap with trace
+(def sample-csv (slurp "sample.csv"))
 
-     (and (= (get cs n) \") start)
-     (process-newlines cs (inc n) false tmp false)
+(clojure.pprint/pprint sample-csv)
 
-     (= (get cs n) \")
-     (process-newlines cs (inc n) true tmp false)
+(defn trace [x] (do (println x) x))
 
-     (= (get cs n) \newline)
-     ;; XXX: n count off now?
-     ;; OOPS: only when matched
-     (let [new-cs (apply str (concat (take n cs)
-                                     "NEWLINE"
-                                     (drop (inc n) cs)))]
+(defn base-case-reached? [s n] (= (count s) n))
+(defn new-field? [c] (= c \,))
+(defn new-line? [c] (= c \newline))
+(defn quote? [c] (= c \"))
+(defn double-quote? [c prev-quote?] (and prev-quote? (quote? c)))
+(defn begin-quote? [c field]      (and (not (seq field)) (quote? c)))
+(defn end-quote? [c in-quote?]    (and in-quote? (quote? c)))
 
-       ;; XXX: something with n count and new-cs / cs I think.
-       (if matched
-         (process-newlines new-cs (inc n) matched (inc tmp) false)
-         (process-newlines cs (inc n) matched (inc tmp) false)))
-       ;;(do (prn (str tmp ": " matched " newline"))
+;; double-quote characters represented as two successive double-quotes.
+;; yet we have the weird numbers too. Oh well.
 
-     :else
-     (process-newlines cs (inc n) matched tmp false))))
+(defn machine [s]
+  (loop [n           0
+         in-quote?   false
+         prev-quote? false
+         field       []
+         line        []
+         done        []]
+    (let [c (get s n)]
+      (cond (base-case-reached? s n)
+            (clojure.string/join \newline done)
 
-;; 2104
-;; 2117, until 2130
+            (new-field? c)
+            (recur (inc n)
+                   false
+                   false
+                   []
+                   (conj line (apply str field))
+                   done)
 
-;; I don't understand this case wrt ", so I'm going to ignore it for now.
-;; NOTE: Deleted it in sample.csv for now.
+            (new-line? c)
+            (let [new-line (conj line (apply str field))]
+              (recur (inc n)
+                     false
+                     false
+                     []
+                     []
+                     (conj done (clojure.string/join \| new-line))))
 
-;; 9,123 456,123"456, 123 456 ,strange numbers
+            (begin-quote? c field)
+            (recur (inc n) true false field line done)
 
-;;#_(prn "\n\nFOUND NEWLINE STARTING AT" n (get cs n))
+            ;; This logic is wrong, I think. Generally first and last, not first and any quote.
+            ;; What are semantics? See case 5, trailing whitespaces. It is only a quote if we start with
+            ;; quote, but it can end at any given point? Do we have to do two pass to get rid of the ""s?
+            ;; I don't understand.
+            (end-quote? c in-quote?)
+            (recur (inc n) false false field line done)
 
-;; Woah, there's a lot of things here.
+            ;; XXX: something wrong with in-quote logic, also case ordering matters a lot here.
+            (double-quote? c prev-quote?)
+            (recur (inc n) in-quote? true field line done)
 
-;; So am I correct in assuming that a field starting with " must be end-quoted, but this is not the case for inline "?
+            (quote? c)
+            (recur (inc n) in-quote? true (conj field c) line done)
 
-;; A field starts with , - if we have a " after we are in a quote.
+             :else
+            (recur (inc n)
+                   in-quote?
+                   false
+                   (conj field c)
+                   line
+                   done)))))
 
-(process-newlines csv-file)
+(spit "csv-output" (machine sample-csv))
 
-(count (clojure.string/split csv-file #"\n"))
+;; What is the right thing to do here? Pause and no look or what.
+;; Fundamental thing here is that I don't really grok semantics.
+;; Lets read spec.
 
-(clojure.pprint/pprint
- (clojure.string/split csv-file #"\n"))
+;; Can't we just read this line by line from csv file?
+(deftest machine-tests
+  (is (= (machine "1,abc,def ghi,jkl,unquoted character strings\n")
+         "1|abc|def ghi|jkl|unquoted character strings"))
+
+  (is (= (machine "2,\"abc\",\"def ghi\",\"jkl\",quoted character strings\n")
+         "2|abc|def ghi|jkl|quoted character strings"))
+
+  (is (= (machine "3,123,456,789,numbers\n")
+         "3|123|456|789|numbers"))
+
+  (is (= (machine "4, abc,def , ghi ,strings with whitespace\n")
+         "4| abc|def | ghi |strings with whitespace"))
+
+  (is (= (machine "5, \"abc\",\"def\" , \"ghi\" ,quoted strings with whitespace\n")
+         "5| \"abc\"|def | \"ghi\" |quoted strings with whitespace"))
+
+  (is (= (machine "6, 123,456 , 789 ,numbers with whitespace\n")
+         "6| 123|456 | 789 |numbers with whitespace"))
+
+  (is (= (machine "7,TAB123,456TAB,TAB789TAB,numbers with tabs for whitespace\n")
+         "7|TAB123|456TAB|TAB789TAB|numbers with tabs for whitespace"))
+
+  (is (= (machine "8, -123, +456, 1E3,more numbers with whitespace\n")
+         "8| -123| +456| 1E3|more numbers with whitespace"))
+
+  (is (= (machine "9,123 456,123\"456, 123 456 ,strange numbers\n")
+         "9|123 456|123\"456| 123 456 |strange numbers"))
+
+  (is (= (machine "10,abc\",de\"f,g\"hi,embedded quotes\n")
+         "10|abc\"|de\"f|g\"hi|embedded quotes"))
+
+
+  (is (= (machine "11,\"abc\"\"\",\"de\"\"f\",\"g\"\"hi\",quoted embedded quotes\n")
+         "11|abc\"|de\"f|g\"hi|quoted embedded quotes"))
+
+  (is (= (machine "12,\"\",\"\" \"\",\"\"x\"\",doubled quotes\n")
+         "12|| \"\"|x\"\"|doubled quotes"))
+
+  (is (= (machine "13,\"abc\"def,abc\"def\",\"abc\" \"def\",strange quotes\n")
+         "13|abcdef|abc\"def\"|abc \"def\"|strange quotes"))
+
+  (is (= (machine "14,,\"\", ,empty fields\n")
+         "14||| |empty fields"))
+
+  (is (= (machine "15,abc,\"def\n ghi\",jkl,embedded newline\n")
+         "15|abc|def\n ghi|jkl|embedded newline"))
+
+  (is (= (machine "16,abc,\"def\",789,multiple types of fields\n")
+         "16|abc|def|789|multiple types of fields"))
+
+  )
+
+
+(run-tests)
+
+;; not getting last one. why not?
+;; what if we have two lines?
+
+(machine (apply str (take 96 sample-csv)))
+
+;; jklgs\n2, where is gs from? would expect it to say jkl, then new field!
+
+;; new field only when , so we want to add it also when we are hitting a newline right
+
+;; ok, now we just got the uqoted thing which is odd, it shouldn't take the ns!
+
+;; hemibellian
+;; ~5m, 20m, 1h, 3h [1.5 to 5h]
