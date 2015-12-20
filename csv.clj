@@ -52,54 +52,61 @@
 ;; | cr   | line-feed            | =>
 ;; | else | line-feed            | =>
 
-(defn read-csv-record [characters read-char!]
+;; Awfully many default states
+
+;; all arguments take x and xs
+;; b default it seems to be [] conj xs x
+
+;; :return cr
+;; :newline newline
+;; :quote :quoted
+
+(defn read-csv-record [peek-char read-char!]
   (letfn
       [(start [x xs]
          (let [c (read-char!)]
-           (cond (nil? c)       (conj xs x)
-                 (= c \return)  (carriage-return [] (conj xs x))
-                 (= c \newline) (line-feed [] (conj xs x))
-                 (= c \")       (quoted-field [] xs)
-                 (= c \,)       (not-field [] (conj xs x))
-                 :else          (unquoted-field (conj x c) xs))))
-       (not-field [x xs]
-         (let [c (read-char!)]
-           (cond (nil? c)       (conj xs x)
-                 (= c \return)  (carriage-return [] (conj xs x))
-                 (= c \newline) (line-feed [] (conj xs x))
-                 (= c \")       (quoted-field x xs)
-                 (= c \,)       (not-field [] (conj xs x))
-                 :else          (unquoted-field (conj x c) xs))))
+           (condp = c
+             nil      (conj xs x)
+             \return  (carriage-return [] (conj xs x))
+             \newline (line-feed [] (conj xs x))
+             \"       (quoted-field [] xs)
+             \,       (start [] (conj xs x))
+             (unquoted-field (conj x c) xs))))
        (quoted-field [x xs]
          (let [c (read-char!)]
-           (cond (nil? c)       (conj xs x)
-                 (= c \")       (may-be-doubled-quotes x xs)
-                 :else          (quoted-field (conj x c) xs))))
+           (condp = c
+             nil (conj xs x)
+             \"  (may-be-doubled-quotes x xs)
+             (quoted-field (conj x c) xs))))
        (may-be-doubled-quotes [x xs]
          (let [c (read-char!)]
-           (cond (nil? c)       (conj xs x)
-                 (= c \return)  (carriage-return [] (conj xs x))
-                 (= c \newline) (line-feed [] (conj xs x))
-                 (= c \")       (quoted-field (conj x \") xs)
-                 (= c \,)       (not-field [] (conj xs x))
-                 :else          (unquoted-field (conj x c) xs))))
+           (condp = c
+             nil      (conj xs x)
+             \return  (carriage-return [] (conj xs x))
+             \newline (line-feed [] (conj xs x))
+             \"       (quoted-field (conj x \") xs)
+             \,       (start [] (conj xs x))
+             (unquoted-field (conj x c) xs))))
        (unquoted-field [x xs]
          (let [c (read-char!)]
-           (cond (nil? c)       (conj xs x)
-                 (= c \return)  (carriage-return [] (conj xs x))
-                 (= c \newline) (line-feed [] (conj xs x))
-                 (= c \,)       (not-field [] (conj xs x))
-                 :else          (unquoted-field (conj x c) xs))))
+           (condp = c
+             nil      (conj xs x)
+             \return  (carriage-return [] (conj xs x))
+             \newline (line-feed [] (conj xs x))
+             \,       (start [] (conj xs x))
+             (unquoted-field (conj x c) xs))))
        (carriage-return [x xs]
-         (let [c (first @characters)]
-           (cond (nil? c)       xs
-                 (= c \newline) (do (read-char!) xs)
-                 :else          xs)))
+         (let [c (peek-char)]
+           (condp = c
+             nil       xs
+             \newline (do (read-char!) xs)
+             xs)))
        (line-feed [x xs]
-         (let [c (first @characters)]
-           (cond (nil? c)      xs
-                 (= c \return) (do (read-char!) xs)
-                 :else         xs)))]
+         (let [c (peek-char)]
+           (condp = c
+             nil     xs
+             \return (do (read-char!) xs)
+             xs)))]
     (start [] [])))
 
 (defn stringify-csv [parsed-csv]
@@ -113,7 +120,7 @@
   (let [stream (atom input)]
     (loop [acc []]
       (if (seq @stream)
-        (recur (conj acc (f stream #(take-first! stream))))
+        (recur (conj acc (f #(first @stream) #(take-first! stream))))
         acc))))
 
 (defn machine [csv]
