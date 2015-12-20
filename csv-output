@@ -8,9 +8,10 @@
 8| -123| +456| 1E3|more numbers with whitespace
 9|123 456|123"456| 123 456 |strange numbers
 10|abc"|de"f|g"hi|embedded quotes
-11|abc"|de"f"|g"hi"|quoted embedded quotes
-12|| "|x"|doubled quotes
+11|abc"|de"f|g"hi|quoted embedded quotes
+12|| ""|x""|doubled quotes
 13|abcdef|abc"def"|abc "def"|strange quotes
 14||| |empty fields
 15|abc|def
-ghi"|jkl|embedded newline
+ghi|jkl|embedded newline
+16|abc|def|789|multiple types of fields
