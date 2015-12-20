@@ -61,52 +61,64 @@
 ;; :newline newline
 ;; :quote :quoted
 
+;; values for x and xs
+
+;; x: [], (conj x c), conj x \"
+;; xs: (conj xs x), xs
+
+;; thats it! can we use this?
+;; fn of x xs c.
+
+;; (foo cr x xs c)
+;; ok time to bed. ~5h H4.
+
+;;  state machine: from a map from state/element to new state.
+;;{:start
+;;{:return :cr
+;;  :newline :line-feed}
+;; :quoted-field}
+
+;; get rid of normal args w/o macros?
+;; very similar setup, just quote that's special
 (defn read-csv-record [peek-char read-char!]
-  (letfn
-      [(start [x xs]
-         (let [c (read-char!)]
-           (condp = c
-             nil      (conj xs x)
-             \return  (carriage-return [] (conj xs x))
-             \newline (line-feed [] (conj xs x))
-             \"       (quoted-field [] xs)
-             \,       (start [] (conj xs x))
-             (unquoted-field (conj x c) xs))))
-       (quoted-field [x xs]
-         (let [c (read-char!)]
-           (condp = c
-             nil (conj xs x)
-             \"  (may-be-doubled-quotes x xs)
-             (quoted-field (conj x c) xs))))
-       (may-be-doubled-quotes [x xs]
-         (let [c (read-char!)]
-           (condp = c
-             nil      (conj xs x)
-             \return  (carriage-return [] (conj xs x))
-             \newline (line-feed [] (conj xs x))
-             \"       (quoted-field (conj x \") xs)
-             \,       (start [] (conj xs x))
-             (unquoted-field (conj x c) xs))))
-       (unquoted-field [x xs]
-         (let [c (read-char!)]
-           (condp = c
-             nil      (conj xs x)
-             \return  (carriage-return [] (conj xs x))
-             \newline (line-feed [] (conj xs x))
-             \,       (start [] (conj xs x))
-             (unquoted-field (conj x c) xs))))
-       (carriage-return [x xs]
-         (let [c (peek-char)]
-           (condp = c
-             nil       xs
-             \newline (do (read-char!) xs)
-             xs)))
-       (line-feed [x xs]
-         (let [c (peek-char)]
-           (condp = c
-             nil     xs
-             \return (do (read-char!) xs)
-             xs)))]
+  (letfn [(start [x xs]
+            (let [c (read-char!)]
+              (case c
+                nil      (conj xs x)
+                \return  (carriage-return (conj xs x))
+                \newline (line-feed (conj xs x))
+                \"       (quoted-field [] xs)
+                \,       (start [] (conj xs x))
+                         (unquoted-field (conj x c) xs))))
+          (quoted-field [x xs]
+            (let [c (read-char!)]
+              (case c
+                nil      (conj xs x)
+                \"       (may-be-doubled-quotes x xs)
+                         (quoted-field (conj x c) xs))))
+          (may-be-doubled-quotes [x xs]
+            (let [c (read-char!)]
+              (case c
+                nil      (conj xs x)
+                \return  (carriage-return (conj xs x))
+                \newline (line-feed (conj xs x))
+                \"       (quoted-field (conj x \") xs)
+                \,       (start [] (conj xs x))
+                         (unquoted-field (conj x c) xs))))
+          (unquoted-field [x xs]
+            (let [c (read-char!)]
+              (case c
+                nil      (conj xs x)
+                \return  (carriage-return (conj xs x))
+                \newline (line-feed (conj xs x))
+                \,       (start [] (conj xs x))
+                         (unquoted-field (conj x c) xs))))
+          (carriage-return [xs]
+            (when (= (peek-char) \newline) (read-char!))
+            xs)
+          (line-feed [xs]
+            (when (= (peek-char) \return) (read-char!))
+            xs)]
     (start [] [])))
 
 (defn stringify-csv [parsed-csv]
