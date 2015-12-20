@@ -5,77 +5,71 @@
 
 (defn trace [x] (do (println x) x))
 
-(defn read-csv-record [characters]
+;; Make a state diagram!
+
+(defn read-csv-record [characters read-char!]
   (letfn
-      [(read-char! []
-         (let [c (first @characters)
-               _ (swap! characters rest)]
-           c))
-       (add-field [field fields]
-         (conj fields field))
-       (start [field fields]
+      [(start [x xs]
          (let [c (read-char!)]
-           (cond
-             (nil? c) fields
-             (= c \return) (carriage-return field fields)
-             (= c \newline) (line-feed field fields)
-             (= c \") (quoted-field field fields)
-             (= c \,) (not-field [] (add-field field fields))
-             :else (unquoted-field (conj field c) fields))))
-       (not-field [field fields]
+           (cond (nil? c)       (conj xs x)
+                 (= c \return)  (carriage-return [] (conj xs x))
+                 (= c \newline) (line-feed [] (conj xs x))
+                 (= c \")       (quoted-field [] xs)
+                 (= c \,)       (not-field [] (conj xs x))
+                 :else          (unquoted-field (conj x c) xs))))
+       (not-field [x xs]
          (let [c (read-char!)]
-           (cond
-             (nil? c) (conj fields "")
-             (= c \return) (carriage-return [] (add-field field fields))
-             (= c \newline) (line-feed [] (add-field field fields))
-             (= c \") (quoted-field field fields)
-             (= c \,) (not-field [] (add-field field fields))
-             :else (unquoted-field (conj field c) fields))))
-       (quoted-field [field fields]
+           (cond (nil? c)       (conj xs x)
+                 (= c \return)  (carriage-return [] (conj xs x))
+                 (= c \newline) (line-feed [] (conj xs x))
+                 (= c \")       (quoted-field x xs)
+                 (= c \,)       (not-field [] (conj xs x))
+                 :else          (unquoted-field (conj x c) xs))))
+       (quoted-field [x xs]
          (let [c (read-char!)]
-           (cond
-             (nil? c) (add-field field fields)
-             (= c \") (may-be-doubled-quotes field fields)
-             :else (quoted-field (conj field c) fields))))
-       (may-be-doubled-quotes [field fields]
+           (cond (nil? c)       (conj xs x)
+                 (= c \")       (may-be-doubled-quotes x xs)
+                 :else          (quoted-field (conj x c) xs))))
+       (may-be-doubled-quotes [x xs]
          (let [c (read-char!)]
-           (cond
-             (nil? c) (add-field field fields)
-             (= c \return) (carriage-return [] (add-field field fields))
-             (= c \newline) (line-feed [] (add-field field fields))
-             (= c \") (quoted-field (conj field \") fields)
-             (= c \,) (not-field [] (add-field field fields))
-             :else (unquoted-field (conj field c) fields))))
-       (unquoted-field [field fields]
+           (cond (nil? c)       (conj xs x)
+                 (= c \return)  (carriage-return [] (conj xs x))
+                 (= c \newline) (line-feed [] (conj xs x))
+                 (= c \")       (quoted-field (conj x \") xs)
+                 (= c \,)       (not-field [] (conj xs x))
+                 :else          (unquoted-field (conj x c) xs))))
+       (unquoted-field [x xs]
          (let [c (read-char!)]
-           (cond
-             (nil? c) (add-field field fields)
-             (= c \return) (carriage-return [] (add-field field fields))
-             (= c \newline) (line-feed [] (add-field field fields))
-             (= c \,) (not-field [] (add-field field fields))
-             :else (unquoted-field (conj field c) fields))))
-       (carriage-return [field fields]
+           (cond (nil? c)       (conj xs x)
+                 (= c \return)  (carriage-return [] (conj xs x))
+                 (= c \newline) (line-feed [] (conj xs x))
+                 (= c \,)       (not-field [] (conj xs x))
+                 :else          (unquoted-field (conj x c) xs))))
+       (carriage-return [x xs]
          (let [c (first @characters)]
-           (cond
-             (nil? c) fields
-             (= c \newline) (do (read-char!) fields)
-             :else fields)))
-       (line-feed [field fields]
+           (cond (nil? c)       xs
+                 (= c \newline) (do (read-char!) xs)
+                 :else          xs)))
+       (line-feed [x xs]
          (let [c (first @characters)]
-           (cond (nil? c) fields
-                 (= c \return) (do (read-char!) fields)
-                 :else fields)))]
+           (cond (nil? c)      xs
+                 (= c \return) (do (read-char!) xs)
+                 :else         xs)))]
     (start [] [])))
 
 (defn stringify-csv [parsed-csv]
   (clojure.string/join \| (map #(apply str %) parsed-csv)))
 
+(defn take-first! [atm]
+  (let [[x _] [(first @atm) (swap! atm rest)]]
+    x))
+
 (defn with-pseudo-input [input f]
   (let [stream (atom input)]
-    (loop [lines []]
+    (loop [acc []]
       (if (seq @stream)
-        (recur (conj lines (f stream)))
-        lines))))
+        (recur (conj acc (f stream #(take-first! stream))))
+        acc))))
 
 (defn machine [csv]
   (clojure.string/join
