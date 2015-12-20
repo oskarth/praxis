@@ -7,6 +7,51 @@
 
 ;; Make a state diagram!
 
+;; STATES
+;; start
+;; not-field
+;; quoted-field
+;; may-be-doubled quotes
+;; unquoted-field
+;; carriage-return
+;; line-feed
+
+;; State diagram, ish
+;; | C    | CURR                 | NEXT
+;;-------------------------------------------------------
+;; | eof  | start                | =>
+;; | cr   | start                | carriage-return
+;; | nl   | start                | line-feed
+;; | "    | start                | quoted-field
+;; | ,    | start                | not-field
+;; | else | start                | unquoted-field
+;; | eof  | not-field            | =>
+;; | cr   | not-field            | carriage-return
+;; | nl   | not-field            | line-feed
+;; | "    | not-field            | quoted-field
+;; | ,    | not-field            | not-field
+;; | else | not-field            | unquoted-field
+;; | eof  | quoted-field         | =>
+;; | "    | quoted-field         | may-be-double-quotes
+;; | else | quoted-field         | quoted-field
+;; | eof  | may-be-double-quotes | =>
+;; | cr   | may-be-double-quotes | carriage-return
+;; | nl   | may-be-double-quotes | line-feed
+;; | "    | may-be-double-quotes | quoted-field
+;; | ,    | may-be-double-quotes | not-field
+;; | else | may-be-double-quotes | unquoted-field
+;; | eof  | unquoted-field       | =>
+;; | cr   | unquoted-field       | carriage-return
+;; | nl   | unquoted-field       | line-feed
+;; | ,    | unquoted-field       | not-field
+;; | else | unquoted-field       | unquoted-field
+;; | eof  | carriage-return      | =>
+;; | nl   | carriage-return      | =>
+;; | else | carriage-return      | =>
+;; | eof  | line-feed            | =>
+;; | cr   | line-feed            | =>
+;; | else | line-feed            | =>
+
 (defn read-csv-record [characters read-char!]
   (letfn
       [(start [x xs]
