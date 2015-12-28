@@ -95,6 +95,24 @@ mini. Routes or w/e. Don't know.
 
 *December 15, 2015. CSV again. Spent 1h. Started by dealing with embedded newlines. Got confused by quotation rules but realized it only quotes as a quote if it's in the beginning of a field. Almost got it, but there are a lot of edge cases: a meta lesson I learned is that what I really want is to make a parser state machine.*
 
+*December 20, 2015. CSV again. Spent 1 hour and decided I spent enough time
+going for myself, looked up solution and spent a total of 3h. I got that it's a
+finite state machine I want, and I managed to get quite close in practice after
+some Aha moments. Missed a part that radically simplified state transitions:
+mutually recursive functions, which could be provided by letfn in Clojure (how
+does this work and how is it different from forward declaration wrt stack space
+consumed etc?).*
+
+*December 26, 2015. Beautiful code, Rob Pike's regex parser. Spent 1h
+translating the code and think I got it right, or mostly right. Not sure how to
+test this with confidence - a lot of paths (generative testing? compare with
+builtin regex implementation? what is ideal? good Quicktest candidate, I
+think).*
+
+*December 27, 2015. Beautiful code, 1h after looking at soln. They translated
+strings into seqs first, since that makes the code more natural in Lisp. Think
+that's the right call. Started using PP:s Scheme implementation.*
+
 ## Log
 
 *September 28, 2015. RPN Calculator in Clojure. Took too long, several attempts

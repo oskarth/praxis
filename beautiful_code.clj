@@ -1,15 +1,50 @@
 (ns beautifulcode)
 
-;; 50m done.
-
 ;; ~1h, think I have it?
 
-;; Port Robk Pike matcher
-
 ;; Alternative is to operate on lists and such, possibly better.
+;; Also two tests: one is first sol and other is total time until master, which includes snafu solve thingy. Keep accurate records!
 
 (declare match-here)
 (declare match-star)
+(declare match')
+(declare match-here')
+(declare match-star')
+
+(defn trex [re text]
+  (match' (seq re) (seq text)))
+
+(defn match' [regex text]
+  (let [[r & rs] regex
+        [t & ts] text]
+     (cond (empty? regex) true
+           (empty? text)  false
+           (= r \^)       (match-here' rs text)
+           :else          (or (match-here' regex text) (match' regex ts)))))
+
+;; here atm, destructuring is cool and all but whats up with experiment
+;; did I solve it first hour? IDK.
+
+;; TTM - time to master per problem, where master is defined as 20m after a
+;; week. Maybe.
+
+;; So 4.5h + 1.5h for last problem. 1h now, then ...howm much?
+;; 40 min more so far with soln
+(defn match-here' [regex text]
+  (let [[r & rs] regex
+        [t & ts] text]
+    (cond (empty? regex)                        true
+          (and (rest rs) (= r \*))              (match-star r (rest rs) text)
+          (and (= r \$) (empty? rs))            (empty? text)
+          (and (rest ts) (or (= r \.) (= r t))) (match-here rs ts)
+          )))
+
+;; shouldn't that be (seq (rest rs))?
+
+(get "hello" 1)
+(first (rest "hello"))
+
+(defn match-star' [])
 
 (defn match
   "Search for re anywhere in text."
