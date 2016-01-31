@@ -1,4 +1,35 @@
-# Practice journal
+# New start
+
+Different strategy. Focus on learning and only add for retaining once learned.
+We don't learn by SRS, only retain what is learned. Take it slow, don't know
+multiple yet. Bleed in, one a day ish.
+
+Hypothesis: will remain around 5m solve time. More strict/clear? Cause sometimes
+forget. If fail then that counts at Anki, so same failure rate as fast cards?
+IDK.
+
+Also doing it in Scheme for copywork effect.
+
+is. What's the bigger lesson of parsing?
+
+I think we want to keep Anki shorts. Anything else is too time-wasting.
+
+Lets turn that into cards!
+
+Actually, the test is whether you can do it in ~5m later, and now we want to
+retain with cards.
+
+- Only add to Anki SRS (slow deck) when I can solve in ~5m from scratch
+- 48h tolerance in terms of understanding / becoming fluent with a single problem
+- Think of it as adding to your repertoire
+
+What do we want to record here? When added relevant things to Anki, perhaps.
+
+1. 160129: RPN Calculator in Scheme (http://programmingpraxis.com/2009/02/19/rpn-calculator/)
+2. 160130: SQL Aggregate function in SQL (https://pgexercises.com/questions/aggregates/fachours1a.html)
+3. 160131: Word count in C (K&R p. 21)
+
+# OLD: Practice journal
 
 Inspiration:
 
@@ -344,3 +375,10 @@ with it.*
 *November 25, 2015. Josephus again, got something working ish ~1h, but not best solution. Re-visit soon.*
 
 *November 26-27, 2015. Sudoku solver. ~1h copywork-style using Joy Of Clojure. Requires more studying.*
+
+
+## Unix V7
+
+Praxis here? Using Anki and slow deck.
+
+Do one praxis thing and put in slow deck.
