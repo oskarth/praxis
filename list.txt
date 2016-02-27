@@ -1,0 +1,24 @@
+A List
+From Eloquent Javascript Chapter 4, Exercise 3
+-------
+
+Write a function arrayToList that takes an array and returns a list like this:
+
+var list = {
+  value: 1,
+  rest: {
+    value: 2,
+    rest: {
+      value: 3,
+      rest: null
+    }
+  }
+};
+
+Write the inverse function listToArray that takes a list such as above and
+return the corresponding array.
+
+Write a prepend function that takes and element and a list and adds element to
+list by prepending it.
+
+Write a recursive nth function that looks up the nth element in a list.
