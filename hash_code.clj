@@ -5,7 +5,7 @@
 (defn hash-code [x]
   (loop [n 1 cs (-> x str seq)]
     (if-let [c (first cs)]
-      (recur (unchecked-add (unchecked-multiply 31 n) (unchecked-int c))
+      (recur (unchecked-add (unchecked-multiply 31 n) (int c))
              (rest cs))
       n)))
 
